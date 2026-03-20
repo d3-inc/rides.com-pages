@@ -140,28 +140,21 @@
             <!-- Progress tracker -->
             <div class="relative w-full">
 
-                <!-- Car silhouettes row -->
-                <div class="flex justify-between items-end w-full px-2 sm:px-4 md:px-8 lg:px-[47px]">
-                    <div class="w-[16%] sm:w-[14%]">
-                        <img src="assets/car-active.svg" alt="" class="w-full h-auto">
+                <!-- Cars + progress bar area -->
+                <div class="relative px-2 sm:px-4 md:px-8 lg:px-[47px]">
+                    <!-- Progress bar (behind cars, vertically centered) -->
+                    <div class="absolute left-[5%] right-[5%] lg:left-[76px] lg:right-[96px] top-[43%] h-3 md:h-4 bg-[#efefef]">
+                        <div class="absolute inset-y-0 left-0 bg-black" style="width: 19%;"></div>
                     </div>
-                    <div class="w-[16%] sm:w-[14%]">
-                        <img src="assets/car-ghost.svg" alt="" class="w-full h-auto">
-                    </div>
-                    <div class="w-[16%] sm:w-[14%]">
-                        <img src="assets/car-ghost.svg" alt="" class="w-full h-auto">
-                    </div>
-                    <div class="w-[16%] sm:w-[14%]">
-                        <img src="assets/car-ghost.svg" alt="" class="w-full h-auto">
-                    </div>
-                    <div class="w-[16%] sm:w-[14%]">
-                        <img src="assets/car-ghost.svg" alt="" class="w-full h-auto">
-                    </div>
-                </div>
 
-                <!-- Progress bar -->
-                <div class="relative w-[88%] mx-auto mt-1 h-3 md:h-4 bg-[#efefef]">
-                    <div class="absolute inset-y-0 left-0 bg-black" style="width: 19%;"></div>
+                    <!-- Car silhouettes row -->
+                    <div class="relative z-10 flex justify-between items-center">
+                        <img src="assets/car-active.svg" alt="" class="w-[16%] sm:w-[14%] h-auto">
+                        <img src="assets/car-ghost.svg" alt="" class="w-[16%] sm:w-[14%] h-auto">
+                        <img src="assets/car-ghost.svg" alt="" class="w-[16%] sm:w-[14%] h-auto">
+                        <img src="assets/car-ghost.svg" alt="" class="w-[16%] sm:w-[14%] h-auto">
+                        <img src="assets/car-ghost.svg" alt="" class="w-[16%] sm:w-[14%] h-auto">
+                    </div>
                 </div>
 
                 <!-- Percentage labels -->
