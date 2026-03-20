@@ -510,6 +510,295 @@
         </div>
     </section>
 
+    <!-- Token Cards / Position Early Section -->
+    <section class="relative w-full h-[500px] md:h-[580px] lg:h-[629px] overflow-hidden">
+
+        <!-- Token cards row with edge fade mask -->
+        <div class="absolute inset-x-0 top-[34px] h-[260px] flex items-center justify-center"
+             style="-webkit-mask-image: linear-gradient(to right, transparent 0%, black 20%, black 80%, transparent 100%); mask-image: linear-gradient(to right, transparent 0%, black 20%, black 80%, transparent 100%);">
+
+            <div class="flex gap-5 items-center animate-marquee-left">
+                <!-- Small card -->
+                <div class="bg-[#f3f3f3] border border-[rgba(111,111,111,0.16)] flex flex-col gap-3.5 items-center opacity-80 pb-[23px] pt-[26px] px-5 rounded-[29px] shrink-0 w-[160px] md:w-[195px]">
+                    <img src="assets/token-thumb-1.svg" alt="" class="w-12 md:w-[59px] h-12 md:h-[59px]">
+                    <div class="flex flex-col gap-2.5 items-center w-full">
+                        <p class="font-medium text-base md:text-xl leading-[1.2] text-center">brag.com</p>
+                        <div class="flex flex-col gap-2.5 items-center">
+                            <p class="text-sm md:text-[15px] leading-[1.2] text-center">$1,480.65</p>
+                            <div class="flex items-center gap-0.5 bg-[#00955d]/[0.12] rounded-xl px-1 py-1">
+                                <svg class="w-[7px] h-[7px]" viewBox="0 0 7.32 7.32" fill="none"><path d="M5.115 2.941c-.634-.922-.95-1.383-1.391-1.413a1.1 1.1 0 0 0-.126 0c-.441.03-.758.491-1.391 1.413-.801 1.166-1.202 1.748-1.002 2.212.019.043.041.085.066.125.269.428.976.428 2.39.428s2.121 0 2.39-.428a1 1 0 0 0 .066-.125c.2-.464-.2-1.046-1.002-2.212Z" fill="#00955d"/></svg>
+                                <span class="text-[#00955d] text-[10px] font-medium leading-[1.2]">$24.67%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Small card -->
+                <div class="bg-[#f3f3f3] border border-[rgba(111,111,111,0.16)] flex flex-col gap-3.5 items-center opacity-80 pb-[23px] pt-[26px] px-5 rounded-[29px] shrink-0 w-[160px] md:w-[195px]">
+                    <img src="assets/token-thumb-1.svg" alt="" class="w-12 md:w-[59px] h-12 md:h-[59px]">
+                    <div class="flex flex-col gap-2.5 items-center w-full">
+                        <p class="font-medium text-base md:text-xl leading-[1.2] text-center">brag.com</p>
+                        <div class="flex flex-col gap-2.5 items-center">
+                            <p class="text-sm md:text-[15px] leading-[1.2] text-center">$1,480.65</p>
+                            <div class="flex items-center gap-0.5 bg-[#00955d]/[0.12] rounded-xl px-1 py-1">
+                                <svg class="w-[7px] h-[7px]" viewBox="0 0 7.32 7.32" fill="none"><path d="M5.115 2.941c-.634-.922-.95-1.383-1.391-1.413a1.1 1.1 0 0 0-.126 0c-.441.03-.758.491-1.391 1.413-.801 1.166-1.202 1.748-1.002 2.212.019.043.041.085.066.125.269.428.976.428 2.39.428s2.121 0 2.39-.428a1 1 0 0 0 .066-.125c.2-.464-.2-1.046-1.002-2.212Z" fill="#00955d"/></svg>
+                                <span class="text-[#00955d] text-[10px] font-medium leading-[1.2]">$24.67%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Featured card (larger) -->
+                <div class="bg-[#f3f3f3] border-[1.5px] border-[rgba(111,111,111,0.16)] flex flex-col gap-[18px] items-center pb-[29px] pt-8 px-[26px] rounded-[36px] shrink-0 w-[200px] md:w-[239px]">
+                    <div class="relative w-[58px] md:w-[72px] h-[58px] md:h-[72px]">
+                        <div class="absolute inset-0 bg-black/[0.12] rounded-full"></div>
+                        <div class="absolute inset-[14%] rounded-full overflow-hidden">
+                            <img src="assets/token-thumb-featured-icon.svg" alt="" class="w-full h-full">
+                        </div>
+                    </div>
+                    <div class="flex flex-col gap-3 items-center w-full">
+                        <p class="font-medium text-lg md:text-2xl leading-[1.2] text-center">brag.com</p>
+                        <div class="flex flex-col gap-3 items-center">
+                            <p class="text-base md:text-lg leading-[1.2] text-center">$1,480.65</p>
+                            <div class="flex items-center gap-0.5 bg-[#00955d]/[0.12] rounded-xl px-1.5 py-1.5">
+                                <svg class="w-[9px] h-[9px]" viewBox="0 0 8.95 8.95" fill="none"><path d="M6.255 3.596c-.775-1.127-1.162-1.691-1.701-1.728a1.3 1.3 0 0 0-.154 0c-.539.037-.927.601-1.702 1.728-1.979 2.425-.489 3.137-.027 3.381.03.051.053.104.08.155.329.523 1.194.523 2.923.523s2.594 0 2.923-.523c.03-.051.057-.104.08-.155.245-.568-.245-1.281-1.225-2.705Z" fill="#00955d"/></svg>
+                                <span class="text-[#00955d] text-xs font-medium leading-[1.2]">$24.67%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Small card -->
+                <div class="bg-[#f3f3f3] border border-[rgba(111,111,111,0.16)] flex flex-col gap-3.5 items-center opacity-80 pb-[23px] pt-[26px] px-5 rounded-[29px] shrink-0 w-[160px] md:w-[195px]">
+                    <img src="assets/token-thumb-2.svg" alt="" class="w-12 md:w-[59px] h-12 md:h-[59px]">
+                    <div class="flex flex-col gap-2.5 items-center w-full">
+                        <p class="font-medium text-base md:text-xl leading-[1.2] text-center">brag.com</p>
+                        <div class="flex flex-col gap-2.5 items-center">
+                            <p class="text-sm md:text-[15px] leading-[1.2] text-center">$1,480.65</p>
+                            <div class="flex items-center gap-0.5 bg-[#00955d]/[0.12] rounded-xl px-1 py-1">
+                                <svg class="w-[7px] h-[7px]" viewBox="0 0 7.32 7.32" fill="none"><path d="M5.115 2.941c-.634-.922-.95-1.383-1.391-1.413a1.1 1.1 0 0 0-.126 0c-.441.03-.758.491-1.391 1.413-.801 1.166-1.202 1.748-1.002 2.212.019.043.041.085.066.125.269.428.976.428 2.39.428s2.121 0 2.39-.428a1 1 0 0 0 .066-.125c.2-.464-.2-1.046-1.002-2.212Z" fill="#00955d"/></svg>
+                                <span class="text-[#00955d] text-[10px] font-medium leading-[1.2]">$24.67%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Small card -->
+                <div class="bg-[#f3f3f3] border border-[rgba(111,111,111,0.16)] flex flex-col gap-3.5 items-center opacity-80 pb-[23px] pt-[26px] px-5 rounded-[29px] shrink-0 w-[160px] md:w-[195px]">
+                    <img src="assets/token-thumb-2.svg" alt="" class="w-12 md:w-[59px] h-12 md:h-[59px]">
+                    <div class="flex flex-col gap-2.5 items-center w-full">
+                        <p class="font-medium text-base md:text-xl leading-[1.2] text-center">brag.com</p>
+                        <div class="flex flex-col gap-2.5 items-center">
+                            <p class="text-sm md:text-[15px] leading-[1.2] text-center">$1,480.65</p>
+                            <div class="flex items-center gap-0.5 bg-[#00955d]/[0.12] rounded-xl px-1 py-1">
+                                <svg class="w-[7px] h-[7px]" viewBox="0 0 7.32 7.32" fill="none"><path d="M5.115 2.941c-.634-.922-.95-1.383-1.391-1.413a1.1 1.1 0 0 0-.126 0c-.441.03-.758.491-1.391 1.413-.801 1.166-1.202 1.748-1.002 2.212.019.043.041.085.066.125.269.428.976.428 2.39.428s2.121 0 2.39-.428a1 1 0 0 0 .066-.125c.2-.464-.2-1.046-1.002-2.212Z" fill="#00955d"/></svg>
+                                <span class="text-[#00955d] text-[10px] font-medium leading-[1.2]">$24.67%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Duplicate set for seamless loop -->
+                <div class="bg-[#f3f3f3] border border-[rgba(111,111,111,0.16)] flex flex-col gap-3.5 items-center opacity-80 pb-[23px] pt-[26px] px-5 rounded-[29px] shrink-0 w-[160px] md:w-[195px]">
+                    <img src="assets/token-thumb-1.svg" alt="" class="w-12 md:w-[59px] h-12 md:h-[59px]">
+                    <div class="flex flex-col gap-2.5 items-center w-full">
+                        <p class="font-medium text-base md:text-xl leading-[1.2] text-center">brag.com</p>
+                        <div class="flex flex-col gap-2.5 items-center">
+                            <p class="text-sm md:text-[15px] leading-[1.2] text-center">$1,480.65</p>
+                            <div class="flex items-center gap-0.5 bg-[#00955d]/[0.12] rounded-xl px-1 py-1">
+                                <svg class="w-[7px] h-[7px]" viewBox="0 0 7.32 7.32" fill="none"><path d="M5.115 2.941c-.634-.922-.95-1.383-1.391-1.413a1.1 1.1 0 0 0-.126 0c-.441.03-.758.491-1.391 1.413-.801 1.166-1.202 1.748-1.002 2.212.019.043.041.085.066.125.269.428.976.428 2.39.428s2.121 0 2.39-.428a1 1 0 0 0 .066-.125c.2-.464-.2-1.046-1.002-2.212Z" fill="#00955d"/></svg>
+                                <span class="text-[#00955d] text-[10px] font-medium leading-[1.2]">$24.67%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-[#f3f3f3] border border-[rgba(111,111,111,0.16)] flex flex-col gap-3.5 items-center opacity-80 pb-[23px] pt-[26px] px-5 rounded-[29px] shrink-0 w-[160px] md:w-[195px]">
+                    <img src="assets/token-thumb-1.svg" alt="" class="w-12 md:w-[59px] h-12 md:h-[59px]">
+                    <div class="flex flex-col gap-2.5 items-center w-full">
+                        <p class="font-medium text-base md:text-xl leading-[1.2] text-center">brag.com</p>
+                        <div class="flex flex-col gap-2.5 items-center">
+                            <p class="text-sm md:text-[15px] leading-[1.2] text-center">$1,480.65</p>
+                            <div class="flex items-center gap-0.5 bg-[#00955d]/[0.12] rounded-xl px-1 py-1">
+                                <svg class="w-[7px] h-[7px]" viewBox="0 0 7.32 7.32" fill="none"><path d="M5.115 2.941c-.634-.922-.95-1.383-1.391-1.413a1.1 1.1 0 0 0-.126 0c-.441.03-.758.491-1.391 1.413-.801 1.166-1.202 1.748-1.002 2.212.019.043.041.085.066.125.269.428.976.428 2.39.428s2.121 0 2.39-.428a1 1 0 0 0 .066-.125c.2-.464-.2-1.046-1.002-2.212Z" fill="#00955d"/></svg>
+                                <span class="text-[#00955d] text-[10px] font-medium leading-[1.2]">$24.67%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-[#f3f3f3] border-[1.5px] border-[rgba(111,111,111,0.16)] flex flex-col gap-[18px] items-center pb-[29px] pt-8 px-[26px] rounded-[36px] shrink-0 w-[200px] md:w-[239px]">
+                    <div class="relative w-[58px] md:w-[72px] h-[58px] md:h-[72px]">
+                        <div class="absolute inset-0 bg-black/[0.12] rounded-full"></div>
+                        <div class="absolute inset-[14%] rounded-full overflow-hidden">
+                            <img src="assets/token-thumb-featured-icon.svg" alt="" class="w-full h-full">
+                        </div>
+                    </div>
+                    <div class="flex flex-col gap-3 items-center w-full">
+                        <p class="font-medium text-lg md:text-2xl leading-[1.2] text-center">brag.com</p>
+                        <div class="flex flex-col gap-3 items-center">
+                            <p class="text-base md:text-lg leading-[1.2] text-center">$1,480.65</p>
+                            <div class="flex items-center gap-0.5 bg-[#00955d]/[0.12] rounded-xl px-1.5 py-1.5">
+                                <svg class="w-[9px] h-[9px]" viewBox="0 0 8.95 8.95" fill="none"><path d="M6.255 3.596c-.775-1.127-1.162-1.691-1.701-1.728a1.3 1.3 0 0 0-.154 0c-.539.037-.927.601-1.702 1.728-1.979 2.425-.489 3.137-.027 3.381.03.051.053.104.08.155.329.523 1.194.523 2.923.523s2.594 0 2.923-.523c.03-.051.057-.104.08-.155.245-.568-.245-1.281-1.225-2.705Z" fill="#00955d"/></svg>
+                                <span class="text-[#00955d] text-xs font-medium leading-[1.2]">$24.67%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-[#f3f3f3] border border-[rgba(111,111,111,0.16)] flex flex-col gap-3.5 items-center opacity-80 pb-[23px] pt-[26px] px-5 rounded-[29px] shrink-0 w-[160px] md:w-[195px]">
+                    <img src="assets/token-thumb-2.svg" alt="" class="w-12 md:w-[59px] h-12 md:h-[59px]">
+                    <div class="flex flex-col gap-2.5 items-center w-full">
+                        <p class="font-medium text-base md:text-xl leading-[1.2] text-center">brag.com</p>
+                        <div class="flex flex-col gap-2.5 items-center">
+                            <p class="text-sm md:text-[15px] leading-[1.2] text-center">$1,480.65</p>
+                            <div class="flex items-center gap-0.5 bg-[#00955d]/[0.12] rounded-xl px-1 py-1">
+                                <svg class="w-[7px] h-[7px]" viewBox="0 0 7.32 7.32" fill="none"><path d="M5.115 2.941c-.634-.922-.95-1.383-1.391-1.413a1.1 1.1 0 0 0-.126 0c-.441.03-.758.491-1.391 1.413-.801 1.166-1.202 1.748-1.002 2.212.019.043.041.085.066.125.269.428.976.428 2.39.428s2.121 0 2.39-.428a1 1 0 0 0 .066-.125c.2-.464-.2-1.046-1.002-2.212Z" fill="#00955d"/></svg>
+                                <span class="text-[#00955d] text-[10px] font-medium leading-[1.2]">$24.67%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-[#f3f3f3] border border-[rgba(111,111,111,0.16)] flex flex-col gap-3.5 items-center opacity-80 pb-[23px] pt-[26px] px-5 rounded-[29px] shrink-0 w-[160px] md:w-[195px]">
+                    <img src="assets/token-thumb-2.svg" alt="" class="w-12 md:w-[59px] h-12 md:h-[59px]">
+                    <div class="flex flex-col gap-2.5 items-center w-full">
+                        <p class="font-medium text-base md:text-xl leading-[1.2] text-center">brag.com</p>
+                        <div class="flex flex-col gap-2.5 items-center">
+                            <p class="text-sm md:text-[15px] leading-[1.2] text-center">$1,480.65</p>
+                            <div class="flex items-center gap-0.5 bg-[#00955d]/[0.12] rounded-xl px-1 py-1">
+                                <svg class="w-[7px] h-[7px]" viewBox="0 0 7.32 7.32" fill="none"><path d="M5.115 2.941c-.634-.922-.95-1.383-1.391-1.413a1.1 1.1 0 0 0-.126 0c-.441.03-.758.491-1.391 1.413-.801 1.166-1.202 1.748-1.002 2.212.019.043.041.085.066.125.269.428.976.428 2.39.428s2.121 0 2.39-.428a1 1 0 0 0 .066-.125c.2-.464-.2-1.046-1.002-2.212Z" fill="#00955d"/></svg>
+                                <span class="text-[#00955d] text-[10px] font-medium leading-[1.2]">$24.67%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Text content — centered in bottom portion -->
+        <div class="absolute inset-x-0 bottom-0 flex flex-col gap-8 items-center px-6 pb-10 md:pb-16 lg:pb-[60px]" style="top: 369px;">
+            <div class="flex flex-col gap-5 items-center text-center w-full max-w-[606px]">
+                <h2 class="font-heading font-semibold text-[32px] sm:text-[40px] md:text-[48px] lg:text-[56px] leading-[1.08] tracking-[-0.02em]">
+                    Position early
+                </h2>
+                <p class="text-base md:text-lg leading-[1.4] tracking-[-0.008em]">
+                    Enter before the next generation of transportation brands emerges.
+                </p>
+            </div>
+            <a href="#" class="inline-flex items-center justify-center bg-black text-white font-semibold text-base md:text-lg leading-[1.4] tracking-[-0.008em] px-[22px] py-4 rounded-xl hover:bg-gray-900 transition-colors">
+                Stack Boosts
+            </a>
+        </div>
+    </section>
+
+    <!-- Position Early CTA Banner -->
+    <section class="w-full px-6 md:px-16 lg:px-[140px] xl:px-[271px]">
+        <div class="relative bg-[#f3f3f3] rounded-xl overflow-hidden w-full min-h-[260px] sm:min-h-[290px] md:min-h-[329px]">
+
+            <!-- Text content -->
+            <div class="relative z-10 flex flex-col gap-6 md:gap-8 items-start px-6 sm:px-8 md:px-[51px] py-10 md:py-[68px] w-full max-w-[660px]">
+                <div class="flex flex-col gap-4 md:gap-5 items-start text-black w-full">
+                    <h2 class="font-heading font-semibold text-[32px] sm:text-[40px] md:text-[48px] lg:text-[56px] leading-[1.08] tracking-[-0.02em]">
+                        Position early
+                    </h2>
+                    <p class="text-base md:text-lg leading-[1.4] tracking-[-0.008em]">
+                        Enter before the next generation of transportation brands emerges.
+                    </p>
+                </div>
+                <a href="#" class="inline-flex items-center justify-center bg-black text-white font-semibold text-base md:text-lg leading-[1.4] tracking-[-0.008em] px-[22px] py-4 rounded-xl hover:bg-gray-900 transition-colors">
+                    Stack Boosts
+                </a>
+            </div>
+
+            <!-- Decorative coins — right side, hidden on small screens -->
+            <div class="hidden md:block absolute inset-0 pointer-events-none">
+                <!-- g3 coin — top right, faded -->
+                <img src="assets/coin-g3.png" alt="" class="absolute w-[180px] lg:w-[220px] xl:w-[276px] opacity-[0.38] right-[5%] top-[-20%]">
+
+                <!-- g3 coin — flipped, center right -->
+                <img src="assets/coin-g3.png" alt="" class="absolute w-[160px] lg:w-[200px] xl:w-[253px] opacity-[0.35] right-[20%] bottom-[10%]" style="transform: rotate(180deg) scaleY(-1);">
+
+                <!-- Ethereum coin — small, tilted -->
+                <img src="assets/coin-eth.png" alt="" class="absolute w-[40px] lg:w-[50px] xl:w-[61px] opacity-[0.19] right-[12%] top-[15%] rounded-[14px]" style="transform: rotate(-7.7deg) skewX(-25.93deg) scaleY(0.9);">
+
+                <!-- Ava logomark — small, tilted -->
+                <img src="assets/coin-ava.svg" alt="" class="absolute w-[40px] lg:w-[48px] xl:w-[60px] opacity-[0.35] right-[25%] top-[10%]" style="transform: rotate(11.93deg) skewX(30deg) scaleY(0.87);">
+
+                <!-- g4 coin — large, bottom center-right -->
+                <img src="assets/coin-g4.png" alt="" class="absolute w-[160px] lg:w-[190px] xl:w-[236px] right-[8%] bottom-[-25%]" style="transform: rotate(-12.97deg);">
+
+                <!-- Coin logo overlay -->
+                <img src="assets/coin-logo.svg" alt="" class="absolute w-[55px] lg:w-[68px] xl:w-[83px] right-[12%] bottom-[5%]">
+
+                <!-- g5 coin — far right -->
+                <img src="assets/coin-g5.png" alt="" class="absolute w-[140px] lg:w-[180px] xl:w-[226px] opacity-80 right-[-2%] bottom-[-5%]">
+            </div>
+        </div>
+    </section>
+
+    <!-- Prepare for Launch Section -->
+    <section class="w-full px-6 md:px-16 lg:px-[140px] xl:px-[271px] py-16 md:py-24 lg:py-[120px]">
+        <div class="relative bg-black rounded-xl overflow-hidden w-full min-h-[280px] sm:min-h-[320px] md:min-h-[381px]">
+
+            <!-- Text content -->
+            <div class="relative z-10 flex flex-col gap-6 md:gap-8 items-start px-6 sm:px-8 md:px-[62px] py-10 md:py-[81px] w-full max-w-[670px]">
+                <div class="flex flex-col gap-4 md:gap-5 items-start text-white w-full">
+                    <h2 class="font-heading font-semibold text-[32px] sm:text-[40px] md:text-[48px] lg:text-[56px] leading-[1.08] tracking-[-0.02em]">
+                        Prepare for launch
+                    </h2>
+                    <p class="text-base md:text-lg leading-[1.4] tracking-[-0.008em]">
+                        Before you can trade $<a href="https://rides.com" class="underline decoration-solid">RIDES.COM</a>, you'll need to bridge funds to Doma. Connect your wallet now and bridge USDC to be ready for launch day.
+                    </p>
+                </div>
+                <a href="#" class="inline-flex items-center justify-center bg-white text-black font-semibold text-base md:text-lg leading-[1.4] tracking-[-0.008em] px-[22px] py-4 rounded-xl hover:bg-gray-100 transition-colors">
+                    Bridge to Doma
+                </a>
+            </div>
+
+            <!-- Decorative road + cars — hidden on small screens -->
+            <div class="hidden md:block absolute inset-0 pointer-events-none">
+                <!-- Dashed road line -->
+                <svg class="absolute left-[17%] top-[14%] w-[90%] h-auto" viewBox="0 0 1247.08 410.893" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+                    <path d="M0.942 410.557C29.442 330.89 203.842 180.057 673.442 214.057C1143.04 248.057 1250.77 85.557 1245.94 0.056" stroke="white" stroke-opacity="0.43" stroke-width="2" stroke-dasharray="8 8"/>
+                </svg>
+
+                <!-- Car 1 — bottom left of road -->
+                <img src="assets/car-small.png" alt="" class="absolute w-[60px] lg:w-[75px] xl:w-[88px] left-[24%] bottom-[8%]" style="transform: rotate(166.19deg) scaleY(-1);">
+
+                <!-- Car 2 — middle of road -->
+                <img src="assets/car-small.png" alt="" class="absolute w-[55px] lg:w-[70px] xl:w-[88px] left-[55%] bottom-[28%]" style="transform: rotate(-178.6deg) scaleY(-1);">
+
+                <!-- Car 3 — top right of road, larger -->
+                <img src="assets/car-small.png" alt="" class="absolute w-[70px] lg:w-[88px] xl:w-[105px] right-[2%] top-[42%]" style="transform: rotate(164.95deg) scaleY(-1);">
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="w-full border-t border-b border-black/50 px-6 md:px-16 lg:px-[140px] xl:pl-[272px] xl:pr-[208px] py-5 md:py-7">
+        <div class="flex flex-col gap-4 md:gap-6">
+
+            <!-- Top row -->
+            <div class="flex flex-wrap items-center gap-3 text-sm leading-[1.34] tracking-[-0.0112px]">
+                <!-- Doma logo + year -->
+                <div class="flex items-center gap-2">
+                    <img src="assets/doma-logo.svg" alt="Doma" class="h-[13px] w-auto">
+                    <span>2025</span>
+                </div>
+                <span class="w-[2px] h-[2px] bg-black rounded-full"></span>
+                <a href="#" class="hover:underline">Terms &amp; Conditions</a>
+                <span class="w-[2px] h-[2px] bg-black rounded-full"></span>
+                <a href="#" class="hover:underline">Privacy Notice</a>
+            </div>
+
+            <!-- Copyright -->
+            <p class="text-xs leading-[1.44]">
+                Copyright &copy; 2025 Doma. All Rights Reserved. By visiting or using this site, you agree to be bound by our Terms of Service and Privacy Policy.
+            </p>
+        </div>
+    </footer>
+
     <!-- Countdown Timer Script -->
     <script>
         (function() {
