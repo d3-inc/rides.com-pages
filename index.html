@@ -223,9 +223,9 @@
     <!-- Position Early / Social Proof Section -->
     <section class="relative w-full h-[500px] md:h-[580px] lg:h-[629px] overflow-hidden">
 
-        <!-- Tweet rows with edge fade mask -->
+        <!-- Tweet rows with elliptical fade mask -->
         <div class="absolute inset-x-0 top-[34px] h-[260px]"
-             style="-webkit-mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%); mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);">
+             style="-webkit-mask-image: radial-gradient(ellipse 70% 100% at 50% 30%, black 50%, transparent 75%); mask-image: radial-gradient(ellipse 70% 100% at 50% 30%, black 50%, transparent 75%);">
 
             <!-- Row 1 — scrolls left -->
             <div class="flex gap-5 absolute top-0 animate-marquee-left">
@@ -709,23 +709,12 @@
             <!-- Decorative coins — right side, hidden on small screens -->
             <div class="hidden md:block absolute inset-0 pointer-events-none">
                 <!-- g3 coin — top right, faded -->
-                <img src="assets/coin-g3.png" alt="" class="absolute w-[180px] lg:w-[220px] xl:w-[276px] opacity-[0.38] right-[0.5%] top-[-16%]">
+                <img src="assets/coin-g2.png" alt="" class="absolute w-[180px] lg:w-[220px] xl:w-[276px] opacity-[0.38] right-[0.5%] top-[-16%]">
 
                 <!-- g3 coin — flipped, center right -->
                 <img src="assets/coin-g3.png" alt="" class="absolute w-[160px] lg:w-[200px] xl:w-[253px] opacity-[0.35] right-[13%] bottom-[42%]" style="transform: rotate(180deg) scaleY(-1);">
-
-                <!-- Ethereum coin — small, tilted -->
-                <img src="assets/coin-eth.png" alt="" class="absolute w-[40px] lg:w-[50px] xl:w-[61px] opacity-[0.19] right-[7%] top-[5%] rounded-[14px]" style="transform: rotate(-7.7deg) skewX(-25.93deg) scaleY(0.9);">
-
-                <!-- Ava logomark — small, tilted -->
-                <img src="assets/coin-ava.svg" alt="" class="absolute w-[40px] lg:w-[48px] xl:w-[60px] opacity-[0.35] right-[20%] top-[5%]" style="transform: rotate(11.93deg) skewX(30deg) scaleY(0.87);">
-
                 <!-- g4 coin — large, bottom center-right -->
                 <img src="assets/coin-g4.png" alt="" class="absolute w-[160px] lg:w-[190px] xl:w-[236px] right-[8%] bottom-[-21%]" style="transform: rotate(-12.97deg);">
-
-                <!-- Coin logo overlay -->
-                <img src="assets/coin-logo.svg" alt="" class="absolute w-[55px] lg:w-[68px] xl:w-[83px] right-[15%] bottom-[9%]">
-
                 <!-- g5 coin — far right -->
                 <img src="assets/coin-g5.png" alt="" class="absolute w-[140px] lg:w-[180px] xl:w-[226px] opacity-80 right-[-3%] bottom-[-1.5%]">
             </div>
