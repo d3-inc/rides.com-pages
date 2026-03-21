@@ -53,13 +53,6 @@
         }
 
         /* Token cards — continuous scroll */
-        @keyframes token-scroll {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-        }
-        .token-track {
-            animation: token-scroll 25s linear infinite;
-        }
         .token-track .token-card {
             transition: none;
             transform-origin: center center;
@@ -523,10 +516,10 @@
     <section class="relative w-full h-[500px] md:h-[580px] lg:h-[629px] overflow-hidden">
 
         <!-- Token cards with elliptical fade mask -->
-        <div class="absolute inset-x-0 top-[34px] h-[260px] flex items-center"
+        <div class="absolute inset-x-0 top-[34px] h-[280px] flex items-center overflow-visible"
              style="-webkit-mask-image: radial-gradient(ellipse 45% 80% at 50% 50%, black 45%, transparent 70%); mask-image: radial-gradient(ellipse 45% 80% at 50% 50%, black 45%, transparent 70%);">
 
-            <div class="flex gap-5 items-center token-track">
+            <div class="flex gap-[20px] items-center token-track" style="will-change: transform;">
                 <!-- 10 cards (5 types × 2) — duplicated below for seamless loop -->
                 <div class="token-card bg-[#f3f3f3] border border-[rgba(111,111,111,0.16)] flex flex-col gap-3.5 items-center pb-[23px] pt-[26px] px-5 rounded-[29px] shrink-0 w-[160px] md:w-[195px]">
                     <img src="assets/token-thumb-1.svg" alt="" class="w-12 md:w-[59px] h-12 md:h-[59px]">
@@ -822,28 +815,54 @@
         })();
     </script>
 
-    <!-- Token Card Center-Scale Effect -->
+    <!-- Token Carousel: JS-driven scroll + center scale -->
     <script>
         (function() {
+            var track = document.querySelector('.token-track');
             var cards = document.querySelectorAll('.token-card');
-            if (!cards.length) return;
+            if (!track || !cards.length) return;
 
-            function scaleCards() {
+            var scrollPos = 0;
+            var speed = 0.8; // px per frame
+            var halfCards = cards.length / 2;
+            // Calculate total width of first half (for seamless loop reset)
+            var totalHalfWidth = 0;
+
+            function measureHalf() {
+                totalHalfWidth = 0;
+                for (var i = 0; i < halfCards; i++) {
+                    totalHalfWidth += cards[i].offsetWidth + 20; // 20px gap
+                }
+            }
+            measureHalf();
+            window.addEventListener('resize', measureHalf);
+
+            function animate() {
+                scrollPos += speed;
+                if (scrollPos >= totalHalfWidth) {
+                    scrollPos -= totalHalfWidth;
+                }
+                track.style.transform = 'translateX(' + (-scrollPos) + 'px)';
+
                 var vpCenter = window.innerWidth / 2;
+                var radius = 250; // px from center where scaling kicks in
                 cards.forEach(function(card) {
                     var rect = card.getBoundingClientRect();
                     var cardCenter = rect.left + rect.width / 2;
                     var dist = Math.abs(cardCenter - vpCenter);
-                    var maxDist = window.innerWidth / 2;
-                    var t = Math.max(0, 1 - dist / maxDist);
+                    // Sharp falloff: only cards very close to center scale up
+                    var t = Math.max(0, 1 - dist / radius);
+                    t = t * t; // ease-in curve for sharper falloff
                     var scale = 1 + t * 0.22;
                     var opacity = 0.8 + t * 0.2;
-                    card.style.transform = 'scale(' + scale + ')';
-                    card.style.opacity = opacity;
+                    var zIndex = Math.round(t * 10);
+                    card.style.transform = 'scale(' + scale.toFixed(3) + ')';
+                    card.style.opacity = opacity.toFixed(3);
+                    card.style.zIndex = zIndex;
                 });
-                requestAnimationFrame(scaleCards);
+                requestAnimationFrame(animate);
             }
-            requestAnimationFrame(scaleCards);
+            requestAnimationFrame(animate);
         })();
     </script>
 
