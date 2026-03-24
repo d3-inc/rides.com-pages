@@ -45,6 +45,9 @@
             0% { transform: translateX(-50%); }
             100% { transform: translateX(0); }
         }
+        .font-heading {
+            font-variation-settings: 'opsz' 14;
+        }
         .animate-marquee-left {
             animation: marquee-left 40s linear infinite;
         }
@@ -58,6 +61,18 @@
             transform-origin: center center;
             will-change: transform, opacity;
         }
+
+        /* Token cards mask — wider on mobile to show side cards */
+        .token-cards-mask {
+            -webkit-mask-image: radial-gradient(ellipse 65% 80% at 50% 50%, black 45%, transparent 70%);
+            mask-image: radial-gradient(ellipse 65% 80% at 50% 50%, black 45%, transparent 70%);
+        }
+        @media (min-width: 768px) {
+            .token-cards-mask {
+                -webkit-mask-image: radial-gradient(ellipse 45% 80% at 50% 50%, black 45%, transparent 70%);
+                mask-image: radial-gradient(ellipse 45% 80% at 50% 50%, black 45%, transparent 70%);
+            }
+        }
     </style>
 </head>
 <body class="font-sans text-black antialiased bg-white overflow-x-hidden">
@@ -65,39 +80,39 @@
     <main class="max-w-[1920px] mx-auto">
 
     <!-- Hero Section -->
-    <section class="relative w-full min-h-screen flex flex-col items-center overflow-hidden">
+    <section class="relative w-full h-screen max-h-[1080px] flex flex-col items-center overflow-hidden">
 
         <!-- Background car image -->
         <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
             <img
                 src="assets/hero-car.png"
                 alt=""
-                class="w-[160%] max-w-none md:w-[130%] lg:w-[110%] xl:w-full object-cover translate-y-[8%]"
+                class="w-[200%] max-w-none md:w-[130%] lg:w-[110%] xl:w-full object-cover translate-y-[18%] md:translate-y-[8%]"
             >
         </div>
 
         <!-- Top gradient overlay (white → transparent) -->
-        <div class="absolute inset-x-0 top-0 h-[45%] bg-gradient-to-b from-white via-white/90 to-transparent pointer-events-none"></div>
+        <div class="absolute inset-x-0 top-0 h-[55%] md:h-[45%] bg-gradient-to-b from-white via-white/90 to-transparent pointer-events-none"></div>
 
         <!-- Bottom gradient overlay (transparent → white) -->
-        <div class="absolute inset-x-0 bottom-0 h-[40%] bg-gradient-to-t from-white via-white/90 to-transparent pointer-events-none"></div>
+        <div class="absolute inset-x-0 bottom-0 h-[35%] md:h-[40%] bg-gradient-to-t from-white via-white/90 to-transparent pointer-events-none"></div>
 
         <!-- Hero content -->
-        <div class="relative z-10 flex flex-col items-center w-full max-w-[810px] mx-auto px-6 pt-[clamp(80px,15vh,152px)]">
+        <div class="relative z-10 flex flex-col items-center w-full max-w-[810px] mx-auto px-6 md:px-0 pt-[clamp(80px,15vh,152px)]">
             <!-- Heading -->
-            <h1 class="font-heading font-semibold text-[clamp(42px,8vw,80px)] leading-[1.08] tracking-[-0.02em] text-center">
+            <h1 class="font-heading font-semibold text-[clamp(42px,8vw,80px)] leading-[1.08] tracking-[-0.02em] text-center max-w-[242px] md:max-w-none">
                 Every ride. One name.
             </h1>
 
             <!-- Subtitle -->
-            <p class="mt-8 text-[clamp(16px,1.8vw,18px)] leading-[1.4] tracking-[-0.008em] text-center max-w-[600px]">
+            <p class="mt-8 text-[clamp(16px,1.8vw,18px)] leading-[1.4] tracking-[-0.008em] text-center max-w-[199px] md:max-w-[600px]">
                 On March 31, rides.com becomes $<a href="http://app.doma.xyz/domain/rides.com" class="underline decoration-solid">RIDES.COM</a>.<br>
                 Category-defining. Fractionalized, liquid and yours to trade.
             </p>
         </div>
 
         <!-- Countdown section -->
-        <div class="relative z-10 flex flex-col items-center mt-auto pb-[clamp(40px,6vh,80px)] px-6">
+        <div class="relative z-10 flex flex-col items-center mt-auto pb-6 md:pb-[clamp(40px,6vh,80px)] px-6">
 
             <!-- Pill badge -->
             <div class="flex items-center gap-2 md:gap-2.5 bg-black rounded-full px-2 md:px-4 py-1 md:py-[9px] mb-5">
@@ -150,7 +165,7 @@
                 <!-- Cars + progress bar area -->
                 <div class="relative px-2 sm:px-4 md:px-8 lg:px-[47px]">
                     <!-- Progress bar (behind cars, vertically centered) -->
-                    <div class="absolute left-[5%] right-[5%] lg:left-[76px] lg:right-[96px] top-[43%] h-3 md:h-4 bg-[#efefef]">
+                    <div class="absolute left-[10%] right-[10%] sm:left-[5%] sm:right-[5%] lg:left-[76px] lg:right-[96px] top-[43%] h-3 md:h-4 bg-[#efefef]">
                         <div class="absolute inset-y-0 left-0 bg-black" style="width: 19%;"></div>
                     </div>
 
@@ -188,36 +203,36 @@
 
     <!-- Stats & Brand Section -->
     <section class="w-full px-6 md:px-16 lg:px-[140px] xl:px-[270px] py-16 md:py-24 lg:py-[120px]">
-        <div class="flex flex-col gap-12 md:gap-[72px] items-center justify-center w-full">
+        <div class="flex flex-col gap-[72px] items-center justify-center w-full">
 
             <!-- Stats cards -->
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-5 w-full">
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-5 w-full">
                 <!-- Card: Boosts -->
-                <div class="bg-[#f3f3f3] flex items-center justify-center rounded-xl px-6 py-[30px] min-h-[120px] md:min-h-[158px]">
+                <div class="bg-[#f3f3f3] flex items-center justify-center rounded-xl overflow-clip p-6 md:py-[30px] md:min-h-[158px]">
                     <div class="flex flex-col items-center text-center w-full">
-                        <p class="font-heading font-semibold text-[40px] md:text-[56px] lg:text-[64px] leading-[1.08] tracking-[-0.02em]">12</p>
-                        <p class="text-base md:text-lg leading-[1.4] tracking-[-0.008em]">Boosts</p>
+                        <p class="font-heading font-semibold text-[36px] md:text-[56px] lg:text-[64px] leading-[1.08] tracking-[-0.02em]">12</p>
+                        <p class="text-lg leading-[1.4] tracking-[-0.008em]">Boosts</p>
                     </div>
                 </div>
                 <!-- Card: Minimum buyout -->
-                <div class="bg-[#f3f3f3] flex items-center justify-center rounded-xl px-6 py-[30px] min-h-[120px] md:min-h-[158px]">
+                <div class="bg-[#f3f3f3] flex items-center justify-center rounded-xl overflow-clip p-6 md:py-[30px] md:min-h-[158px]">
                     <div class="flex flex-col items-center text-center w-full">
-                        <p class="font-heading font-semibold text-[40px] md:text-[56px] lg:text-[64px] leading-[1.08] tracking-[-0.02em]">$2M</p>
-                        <p class="text-base md:text-lg leading-[1.4] tracking-[-0.008em]">Minimum buyout</p>
+                        <p class="font-heading font-semibold text-[36px] md:text-[56px] lg:text-[64px] leading-[1.08] tracking-[-0.02em]">$2M</p>
+                        <p class="text-lg leading-[1.4] tracking-[-0.008em]">Minimum buyout</p>
                     </div>
                 </div>
                 <!-- Card: Starting FDV -->
-                <div class="bg-[#f3f3f3] flex items-center justify-center rounded-xl px-6 py-[30px] min-h-[120px] md:min-h-[158px]">
+                <div class="bg-[#f3f3f3] flex items-center justify-center rounded-xl overflow-clip p-6 md:py-[30px] md:min-h-[158px]">
                     <div class="flex flex-col items-center text-center w-full">
-                        <p class="font-heading font-semibold text-[40px] md:text-[56px] lg:text-[64px] leading-[1.08] tracking-[-0.02em]">$200K</p>
-                        <p class="text-base md:text-lg leading-[1.4] tracking-[-0.008em]">Starting FDV</p>
+                        <p class="font-heading font-semibold text-[36px] md:text-[56px] lg:text-[64px] leading-[1.08] tracking-[-0.02em]">$200K</p>
+                        <p class="text-lg leading-[1.4] tracking-[-0.008em]">Starting FDV</p>
                     </div>
                 </div>
             </div>
 
             <!-- Heading + description -->
-            <div class="flex flex-col gap-5 items-center text-center w-full max-w-[910px]">
-                <h2 class="font-heading font-semibold text-[32px] sm:text-[40px] md:text-[48px] lg:text-[56px] leading-[1.08] tracking-[-0.02em]">
+            <div class="flex flex-col gap-5 items-start text-left md:items-center md:text-center w-full max-w-[910px]">
+                <h2 class="font-heading font-semibold text-[36px] sm:text-[40px] md:text-[48px] lg:text-[56px] leading-[1.08] tracking-[-0.02em]">
                     Before the brand, there's the name
                 </h2>
                 <p class="text-base md:text-lg leading-[1.4] tracking-[-0.008em]">
@@ -228,208 +243,208 @@
     </section>
 
     <!-- Position Early / Social Proof Section -->
-    <section class="relative w-full h-[500px] md:h-[580px] lg:h-[629px] overflow-hidden">
+    <section class="relative w-full py-16 md:py-0 h-auto md:h-[580px] lg:h-[629px] overflow-hidden">
 
         <!-- Tweet rows with elliptical fade mask -->
-        <div class="absolute inset-x-0 top-[34px] h-[260px]"
+        <div class="hidden md:block absolute inset-x-0 top-[34px] h-[260px]"
              style="-webkit-mask-image: radial-gradient(ellipse 70% 100% at 50% 30%, black 50%, transparent 75%); mask-image: radial-gradient(ellipse 70% 100% at 50% 30%, black 50%, transparent 75%);">
 
             <!-- Row 1 — scrolls left -->
             <div class="flex gap-5 absolute top-0 animate-marquee-left">
                 <!-- 10 cards (5 duplicated for seamless loop) -->
-                <div class="bg-[#f3f3f3] flex-shrink-0 w-[340px] md:w-[438px] h-[100px] md:h-[117px] rounded-xl px-3.5 py-3 flex items-start">
-                    <div class="flex flex-col gap-3 w-full h-full">
+                <div class="bg-[#f3f3f3] flex-shrink-0 w-[340px] md:w-[438px] h-[100px] md:h-[117px] rounded-xl overflow-clip px-3.5 py-3 flex items-center">
+                    <div class="flex flex-col gap-4 w-full h-full">
                         <div class="flex items-center gap-2.5">
-                            <img src="assets/avatar-placeholder.png" alt="" class="w-6 h-6 rounded-full object-cover">
+                            <img src="assets/avatar-cryptokaren.png" alt="" class="w-6 h-6 rounded-full object-cover">
                             <span class="font-semibold text-base md:text-lg leading-[1.4] tracking-[-0.008em]">@cryptoKaren</span>
                         </div>
                         <p class="text-base md:text-lg leading-[1.4] tracking-[-0.008em]">Adding another bone to the pile. Join the domain hype now #BoneTheInternet #DomaLaunchpad</p>
                     </div>
                 </div>
-                <div class="bg-[#f3f3f3] flex-shrink-0 w-[340px] md:w-[438px] h-[100px] md:h-[117px] rounded-xl px-3.5 py-3 flex items-start">
-                    <div class="flex flex-col gap-3 w-full h-full">
+                <div class="bg-[#f3f3f3] flex-shrink-0 w-[340px] md:w-[438px] h-[100px] md:h-[117px] rounded-xl overflow-clip px-3.5 py-3 flex items-center">
+                    <div class="flex flex-col gap-4 w-full h-full">
                         <div class="flex items-center gap-2.5">
-                            <img src="assets/avatar-placeholder.png" alt="" class="w-6 h-6 rounded-full object-cover">
-                            <span class="font-semibold text-base md:text-lg leading-[1.4] tracking-[-0.008em]">@domainFlippr</span>
+                            <img src="assets/avatar-rektnride.png" alt="" class="w-6 h-6 rounded-full object-cover">
+                            <span class="font-semibold text-base md:text-lg leading-[1.4] tracking-[-0.008em]">@rektnride</span>
                         </div>
-                        <p class="text-base md:text-lg leading-[1.4] tracking-[-0.008em]">$RIDES.COM is the next category killer. Early positioning is everything.</p>
+                        <p class="text-base md:text-lg leading-[1.4] tracking-[-0.008em]">Engines on. Domains live. You're either early or watching. #RideTheInternet #DomainSeason</p>
                     </div>
                 </div>
-                <div class="bg-[#f3f3f3] flex-shrink-0 w-[340px] md:w-[438px] h-[100px] md:h-[117px] rounded-xl px-3.5 py-3 flex items-start">
-                    <div class="flex flex-col gap-3 w-full h-full">
+                <div class="bg-[#f3f3f3] flex-shrink-0 w-[340px] md:w-[438px] h-[100px] md:h-[117px] rounded-xl overflow-clip px-3.5 py-3 flex items-center">
+                    <div class="flex flex-col gap-4 w-full h-full">
                         <div class="flex items-center gap-2.5">
-                            <img src="assets/avatar-placeholder.png" alt="" class="w-6 h-6 rounded-full object-cover">
-                            <span class="font-semibold text-base md:text-lg leading-[1.4] tracking-[-0.008em]">@web3rides</span>
+                            <img src="assets/avatar-cryptokaren-2.png" alt="" class="w-6 h-6 rounded-full object-cover">
+                            <span class="font-semibold text-base md:text-lg leading-[1.4] tracking-[-0.008em]">@cryptoKaren</span>
                         </div>
-                        <p class="text-base md:text-lg leading-[1.4] tracking-[-0.008em]">Stacking boosts before launch. The domain hype is real #DomaLaunchpad</p>
+                        <p class="text-base md:text-lg leading-[1.4] tracking-[-0.008em]">Fueling the future, one domain at a time. Ride the wave before it rides you. #RideTheInternet</p>
                     </div>
                 </div>
-                <div class="bg-[#f3f3f3] flex-shrink-0 w-[340px] md:w-[438px] h-[100px] md:h-[117px] rounded-xl px-3.5 py-3 flex items-start">
-                    <div class="flex flex-col gap-3 w-full h-full">
+                <div class="bg-[#f3f3f3] flex-shrink-0 w-[340px] md:w-[438px] h-[100px] md:h-[117px] rounded-xl overflow-clip px-3.5 py-3 flex items-center">
+                    <div class="flex flex-col gap-4 w-full h-full">
                         <div class="flex items-center gap-2.5">
-                            <img src="assets/avatar-placeholder.png" alt="" class="w-6 h-6 rounded-full object-cover">
+                            <img src="assets/avatar-onchainops.png" alt="" class="w-6 h-6 rounded-full object-cover">
+                            <span class="font-semibold text-base md:text-lg leading-[1.4] tracking-[-0.008em]">@onchainops</span>
+                        </div>
+                        <p class="text-base md:text-lg leading-[1.4] tracking-[-0.008em]">Shift gears. Claim your ride. The internet isn't waiting. #RideTheInternet #DomaLaunchpad</p>
+                    </div>
+                </div>
+                <div class="bg-[#f3f3f3] flex-shrink-0 w-[340px] md:w-[438px] h-[100px] md:h-[117px] rounded-xl overflow-clip px-3.5 py-3 flex items-center">
+                    <div class="flex flex-col gap-4 w-full h-full">
+                        <div class="flex items-center gap-2.5">
+                            <img src="assets/avatar-cryptokaren.png" alt="" class="w-6 h-6 rounded-full object-cover">
                             <span class="font-semibold text-base md:text-lg leading-[1.4] tracking-[-0.008em]">@cryptoKaren</span>
                         </div>
                         <p class="text-base md:text-lg leading-[1.4] tracking-[-0.008em]">Adding another bone to the pile. Join the domain hype now #BoneTheInternet #DomaLaunchpad</p>
-                    </div>
-                </div>
-                <div class="bg-[#f3f3f3] flex-shrink-0 w-[340px] md:w-[438px] h-[100px] md:h-[117px] rounded-xl px-3.5 py-3 flex items-start">
-                    <div class="flex flex-col gap-3 w-full h-full">
-                        <div class="flex items-center gap-2.5">
-                            <img src="assets/avatar-placeholder.png" alt="" class="w-6 h-6 rounded-full object-cover">
-                            <span class="font-semibold text-base md:text-lg leading-[1.4] tracking-[-0.008em]">@alphaSeeker</span>
-                        </div>
-                        <p class="text-base md:text-lg leading-[1.4] tracking-[-0.008em]">Fractionalized domains are the future. rides.com is just the beginning.</p>
                     </div>
                 </div>
                 <!-- Duplicate set for seamless loop -->
-                <div class="bg-[#f3f3f3] flex-shrink-0 w-[340px] md:w-[438px] h-[100px] md:h-[117px] rounded-xl px-3.5 py-3 flex items-start">
-                    <div class="flex flex-col gap-3 w-full h-full">
+                <div class="bg-[#f3f3f3] flex-shrink-0 w-[340px] md:w-[438px] h-[100px] md:h-[117px] rounded-xl overflow-clip px-3.5 py-3 flex items-center">
+                    <div class="flex flex-col gap-4 w-full h-full">
                         <div class="flex items-center gap-2.5">
-                            <img src="assets/avatar-placeholder.png" alt="" class="w-6 h-6 rounded-full object-cover">
+                            <img src="assets/avatar-cryptokaren.png" alt="" class="w-6 h-6 rounded-full object-cover">
                             <span class="font-semibold text-base md:text-lg leading-[1.4] tracking-[-0.008em]">@cryptoKaren</span>
                         </div>
                         <p class="text-base md:text-lg leading-[1.4] tracking-[-0.008em]">Adding another bone to the pile. Join the domain hype now #BoneTheInternet #DomaLaunchpad</p>
                     </div>
                 </div>
-                <div class="bg-[#f3f3f3] flex-shrink-0 w-[340px] md:w-[438px] h-[100px] md:h-[117px] rounded-xl px-3.5 py-3 flex items-start">
-                    <div class="flex flex-col gap-3 w-full h-full">
+                <div class="bg-[#f3f3f3] flex-shrink-0 w-[340px] md:w-[438px] h-[100px] md:h-[117px] rounded-xl overflow-clip px-3.5 py-3 flex items-center">
+                    <div class="flex flex-col gap-4 w-full h-full">
                         <div class="flex items-center gap-2.5">
-                            <img src="assets/avatar-placeholder.png" alt="" class="w-6 h-6 rounded-full object-cover">
-                            <span class="font-semibold text-base md:text-lg leading-[1.4] tracking-[-0.008em]">@domainFlippr</span>
+                            <img src="assets/avatar-rektnride.png" alt="" class="w-6 h-6 rounded-full object-cover">
+                            <span class="font-semibold text-base md:text-lg leading-[1.4] tracking-[-0.008em]">@rektnride</span>
                         </div>
-                        <p class="text-base md:text-lg leading-[1.4] tracking-[-0.008em]">$RIDES.COM is the next category killer. Early positioning is everything.</p>
+                        <p class="text-base md:text-lg leading-[1.4] tracking-[-0.008em]">Engines on. Domains live. You're either early or watching. #RideTheInternet #DomainSeason</p>
                     </div>
                 </div>
-                <div class="bg-[#f3f3f3] flex-shrink-0 w-[340px] md:w-[438px] h-[100px] md:h-[117px] rounded-xl px-3.5 py-3 flex items-start">
-                    <div class="flex flex-col gap-3 w-full h-full">
+                <div class="bg-[#f3f3f3] flex-shrink-0 w-[340px] md:w-[438px] h-[100px] md:h-[117px] rounded-xl overflow-clip px-3.5 py-3 flex items-center">
+                    <div class="flex flex-col gap-4 w-full h-full">
                         <div class="flex items-center gap-2.5">
-                            <img src="assets/avatar-placeholder.png" alt="" class="w-6 h-6 rounded-full object-cover">
-                            <span class="font-semibold text-base md:text-lg leading-[1.4] tracking-[-0.008em]">@web3rides</span>
+                            <img src="assets/avatar-cryptokaren-2.png" alt="" class="w-6 h-6 rounded-full object-cover">
+                            <span class="font-semibold text-base md:text-lg leading-[1.4] tracking-[-0.008em]">@cryptoKaren</span>
                         </div>
-                        <p class="text-base md:text-lg leading-[1.4] tracking-[-0.008em]">Stacking boosts before launch. The domain hype is real #DomaLaunchpad</p>
+                        <p class="text-base md:text-lg leading-[1.4] tracking-[-0.008em]">Fueling the future, one domain at a time. Ride the wave before it rides you. #RideTheInternet</p>
                     </div>
                 </div>
-                <div class="bg-[#f3f3f3] flex-shrink-0 w-[340px] md:w-[438px] h-[100px] md:h-[117px] rounded-xl px-3.5 py-3 flex items-start">
-                    <div class="flex flex-col gap-3 w-full h-full">
+                <div class="bg-[#f3f3f3] flex-shrink-0 w-[340px] md:w-[438px] h-[100px] md:h-[117px] rounded-xl overflow-clip px-3.5 py-3 flex items-center">
+                    <div class="flex flex-col gap-4 w-full h-full">
                         <div class="flex items-center gap-2.5">
-                            <img src="assets/avatar-placeholder.png" alt="" class="w-6 h-6 rounded-full object-cover">
+                            <img src="assets/avatar-onchainops.png" alt="" class="w-6 h-6 rounded-full object-cover">
+                            <span class="font-semibold text-base md:text-lg leading-[1.4] tracking-[-0.008em]">@onchainops</span>
+                        </div>
+                        <p class="text-base md:text-lg leading-[1.4] tracking-[-0.008em]">Shift gears. Claim your ride. The internet isn't waiting. #RideTheInternet #DomaLaunchpad</p>
+                    </div>
+                </div>
+                <div class="bg-[#f3f3f3] flex-shrink-0 w-[340px] md:w-[438px] h-[100px] md:h-[117px] rounded-xl overflow-clip px-3.5 py-3 flex items-center">
+                    <div class="flex flex-col gap-4 w-full h-full">
+                        <div class="flex items-center gap-2.5">
+                            <img src="assets/avatar-cryptokaren.png" alt="" class="w-6 h-6 rounded-full object-cover">
                             <span class="font-semibold text-base md:text-lg leading-[1.4] tracking-[-0.008em]">@cryptoKaren</span>
                         </div>
                         <p class="text-base md:text-lg leading-[1.4] tracking-[-0.008em]">Adding another bone to the pile. Join the domain hype now #BoneTheInternet #DomaLaunchpad</p>
-                    </div>
-                </div>
-                <div class="bg-[#f3f3f3] flex-shrink-0 w-[340px] md:w-[438px] h-[100px] md:h-[117px] rounded-xl px-3.5 py-3 flex items-start">
-                    <div class="flex flex-col gap-3 w-full h-full">
-                        <div class="flex items-center gap-2.5">
-                            <img src="assets/avatar-placeholder.png" alt="" class="w-6 h-6 rounded-full object-cover">
-                            <span class="font-semibold text-base md:text-lg leading-[1.4] tracking-[-0.008em]">@alphaSeeker</span>
-                        </div>
-                        <p class="text-base md:text-lg leading-[1.4] tracking-[-0.008em]">Fractionalized domains are the future. rides.com is just the beginning.</p>
                     </div>
                 </div>
             </div>
 
             <!-- Row 2 — scrolls right, offset vertically -->
             <div class="flex gap-5 absolute top-[123px] md:top-[143px] animate-marquee-right">
-                <div class="bg-[#f3f3f3] flex-shrink-0 w-[340px] md:w-[438px] h-[100px] md:h-[117px] rounded-xl px-3.5 py-3 flex items-start">
-                    <div class="flex flex-col gap-3 w-full h-full">
+                <div class="bg-[#f3f3f3] flex-shrink-0 w-[340px] md:w-[438px] h-[100px] md:h-[117px] rounded-xl overflow-clip px-3.5 py-3 flex items-center">
+                    <div class="flex flex-col gap-4 w-full h-full">
                         <div class="flex items-center gap-2.5">
-                            <img src="assets/avatar-placeholder.png" alt="" class="w-6 h-6 rounded-full object-cover">
-                            <span class="font-semibold text-base md:text-lg leading-[1.4] tracking-[-0.008em]">@onchainDegen</span>
-                        </div>
-                        <p class="text-base md:text-lg leading-[1.4] tracking-[-0.008em]">The rideshare revolution needs a name. $RIDES.COM is it. Aping in.</p>
-                    </div>
-                </div>
-                <div class="bg-[#f3f3f3] flex-shrink-0 w-[340px] md:w-[438px] h-[100px] md:h-[117px] rounded-xl px-3.5 py-3 flex items-start">
-                    <div class="flex flex-col gap-3 w-full h-full">
-                        <div class="flex items-center gap-2.5">
-                            <img src="assets/avatar-placeholder.png" alt="" class="w-6 h-6 rounded-full object-cover">
+                            <img src="assets/avatar-cryptokaren.png" alt="" class="w-6 h-6 rounded-full object-cover">
                             <span class="font-semibold text-base md:text-lg leading-[1.4] tracking-[-0.008em]">@cryptoKaren</span>
                         </div>
                         <p class="text-base md:text-lg leading-[1.4] tracking-[-0.008em]">Adding another bone to the pile. Join the domain hype now #BoneTheInternet #DomaLaunchpad</p>
                     </div>
                 </div>
-                <div class="bg-[#f3f3f3] flex-shrink-0 w-[340px] md:w-[438px] h-[100px] md:h-[117px] rounded-xl px-3.5 py-3 flex items-start">
-                    <div class="flex flex-col gap-3 w-full h-full">
+                <div class="bg-[#f3f3f3] flex-shrink-0 w-[340px] md:w-[438px] h-[100px] md:h-[117px] rounded-xl overflow-clip px-3.5 py-3 flex items-center">
+                    <div class="flex flex-col gap-4 w-full h-full">
                         <div class="flex items-center gap-2.5">
-                            <img src="assets/avatar-placeholder.png" alt="" class="w-6 h-6 rounded-full object-cover">
-                            <span class="font-semibold text-base md:text-lg leading-[1.4] tracking-[-0.008em]">@domainMaxi</span>
+                            <img src="assets/avatar-blockbyte.png" alt="" class="w-6 h-6 rounded-full object-cover">
+                            <span class="font-semibold text-base md:text-lg leading-[1.4] tracking-[-0.008em]">@blockbyte</span>
                         </div>
-                        <p class="text-base md:text-lg leading-[1.4] tracking-[-0.008em]">Category-defining domains don't come often. This one is liquid on day one.</p>
+                        <p class="text-base md:text-lg leading-[1.4] tracking-[-0.008em]">This isn't traffic. It's momentum. Get in before it accelerates. #RideTheInternet #DomainFi</p>
                     </div>
                 </div>
-                <div class="bg-[#f3f3f3] flex-shrink-0 w-[340px] md:w-[438px] h-[100px] md:h-[117px] rounded-xl px-3.5 py-3 flex items-start">
-                    <div class="flex flex-col gap-3 w-full h-full">
+                <div class="bg-[#f3f3f3] flex-shrink-0 w-[340px] md:w-[438px] h-[100px] md:h-[117px] rounded-xl overflow-clip px-3.5 py-3 flex items-center">
+                    <div class="flex flex-col gap-4 w-full h-full">
                         <div class="flex items-center gap-2.5">
-                            <img src="assets/avatar-placeholder.png" alt="" class="w-6 h-6 rounded-full object-cover">
-                            <span class="font-semibold text-base md:text-lg leading-[1.4] tracking-[-0.008em]">@web3builder</span>
+                            <img src="assets/avatar-nodenomad.png" alt="" class="w-6 h-6 rounded-full object-cover">
+                            <span class="font-semibold text-base md:text-lg leading-[1.4] tracking-[-0.008em]">@nodenomad</span>
                         </div>
-                        <p class="text-base md:text-lg leading-[1.4] tracking-[-0.008em]">Boosts stacked. Position locked. Ready for March 31 launch day.</p>
+                        <p class="text-base md:text-lg leading-[1.4] tracking-[-0.008em]">Another ride hits the chain. Don't stand still while the internet moves. #RideTheInternet</p>
                     </div>
                 </div>
-                <div class="bg-[#f3f3f3] flex-shrink-0 w-[340px] md:w-[438px] h-[100px] md:h-[117px] rounded-xl px-3.5 py-3 flex items-start">
-                    <div class="flex flex-col gap-3 w-full h-full">
+                <div class="bg-[#f3f3f3] flex-shrink-0 w-[340px] md:w-[438px] h-[100px] md:h-[117px] rounded-xl overflow-clip px-3.5 py-3 flex items-center">
+                    <div class="flex flex-col gap-4 w-full h-full">
                         <div class="flex items-center gap-2.5">
-                            <img src="assets/avatar-placeholder.png" alt="" class="w-6 h-6 rounded-full object-cover">
-                            <span class="font-semibold text-base md:text-lg leading-[1.4] tracking-[-0.008em]">@alphaSeeker</span>
+                            <img src="assets/avatar-0xvelocity.png" alt="" class="w-6 h-6 rounded-full object-cover">
+                            <span class="font-semibold text-base md:text-lg leading-[1.4] tracking-[-0.008em]">@0xvelocity</span>
                         </div>
-                        <p class="text-base md:text-lg leading-[1.4] tracking-[-0.008em]">Fractionalized domains are the future. rides.com is just the beginning.</p>
+                        <p class="text-base md:text-lg leading-[1.4] tracking-[-0.008em]">Built for motion. Built for ownership. #RideTheInternet #DomainFi</p>
+                    </div>
+                </div>
+                <div class="bg-[#f3f3f3] flex-shrink-0 w-[340px] md:w-[438px] h-[100px] md:h-[117px] rounded-xl overflow-clip px-3.5 py-3 flex items-center">
+                    <div class="flex flex-col gap-4 w-full h-full">
+                        <div class="flex items-center gap-2.5">
+                            <img src="assets/avatar-cryptokaren-3.png" alt="" class="w-6 h-6 rounded-full object-cover">
+                            <span class="font-semibold text-base md:text-lg leading-[1.4] tracking-[-0.008em]">@cryptoKaren</span>
+                        </div>
+                        <p class="text-base md:text-lg leading-[1.4] tracking-[-0.008em]">Adding another bone to the pile. Join the domain hype now #BoneTheInternet #DomaLaunchpad</p>
                     </div>
                 </div>
                 <!-- Duplicate set for seamless loop -->
-                <div class="bg-[#f3f3f3] flex-shrink-0 w-[340px] md:w-[438px] h-[100px] md:h-[117px] rounded-xl px-3.5 py-3 flex items-start">
-                    <div class="flex flex-col gap-3 w-full h-full">
+                <div class="bg-[#f3f3f3] flex-shrink-0 w-[340px] md:w-[438px] h-[100px] md:h-[117px] rounded-xl overflow-clip px-3.5 py-3 flex items-center">
+                    <div class="flex flex-col gap-4 w-full h-full">
                         <div class="flex items-center gap-2.5">
-                            <img src="assets/avatar-placeholder.png" alt="" class="w-6 h-6 rounded-full object-cover">
-                            <span class="font-semibold text-base md:text-lg leading-[1.4] tracking-[-0.008em]">@onchainDegen</span>
-                        </div>
-                        <p class="text-base md:text-lg leading-[1.4] tracking-[-0.008em]">The rideshare revolution needs a name. $RIDES.COM is it. Aping in.</p>
-                    </div>
-                </div>
-                <div class="bg-[#f3f3f3] flex-shrink-0 w-[340px] md:w-[438px] h-[100px] md:h-[117px] rounded-xl px-3.5 py-3 flex items-start">
-                    <div class="flex flex-col gap-3 w-full h-full">
-                        <div class="flex items-center gap-2.5">
-                            <img src="assets/avatar-placeholder.png" alt="" class="w-6 h-6 rounded-full object-cover">
+                            <img src="assets/avatar-cryptokaren.png" alt="" class="w-6 h-6 rounded-full object-cover">
                             <span class="font-semibold text-base md:text-lg leading-[1.4] tracking-[-0.008em]">@cryptoKaren</span>
                         </div>
                         <p class="text-base md:text-lg leading-[1.4] tracking-[-0.008em]">Adding another bone to the pile. Join the domain hype now #BoneTheInternet #DomaLaunchpad</p>
                     </div>
                 </div>
-                <div class="bg-[#f3f3f3] flex-shrink-0 w-[340px] md:w-[438px] h-[100px] md:h-[117px] rounded-xl px-3.5 py-3 flex items-start">
-                    <div class="flex flex-col gap-3 w-full h-full">
+                <div class="bg-[#f3f3f3] flex-shrink-0 w-[340px] md:w-[438px] h-[100px] md:h-[117px] rounded-xl overflow-clip px-3.5 py-3 flex items-center">
+                    <div class="flex flex-col gap-4 w-full h-full">
                         <div class="flex items-center gap-2.5">
-                            <img src="assets/avatar-placeholder.png" alt="" class="w-6 h-6 rounded-full object-cover">
-                            <span class="font-semibold text-base md:text-lg leading-[1.4] tracking-[-0.008em]">@domainMaxi</span>
+                            <img src="assets/avatar-blockbyte.png" alt="" class="w-6 h-6 rounded-full object-cover">
+                            <span class="font-semibold text-base md:text-lg leading-[1.4] tracking-[-0.008em]">@blockbyte</span>
                         </div>
-                        <p class="text-base md:text-lg leading-[1.4] tracking-[-0.008em]">Category-defining domains don't come often. This one is liquid on day one.</p>
+                        <p class="text-base md:text-lg leading-[1.4] tracking-[-0.008em]">This isn't traffic. It's momentum. Get in before it accelerates. #RideTheInternet #DomainFi</p>
                     </div>
                 </div>
-                <div class="bg-[#f3f3f3] flex-shrink-0 w-[340px] md:w-[438px] h-[100px] md:h-[117px] rounded-xl px-3.5 py-3 flex items-start">
-                    <div class="flex flex-col gap-3 w-full h-full">
+                <div class="bg-[#f3f3f3] flex-shrink-0 w-[340px] md:w-[438px] h-[100px] md:h-[117px] rounded-xl overflow-clip px-3.5 py-3 flex items-center">
+                    <div class="flex flex-col gap-4 w-full h-full">
                         <div class="flex items-center gap-2.5">
-                            <img src="assets/avatar-placeholder.png" alt="" class="w-6 h-6 rounded-full object-cover">
-                            <span class="font-semibold text-base md:text-lg leading-[1.4] tracking-[-0.008em]">@web3builder</span>
+                            <img src="assets/avatar-nodenomad.png" alt="" class="w-6 h-6 rounded-full object-cover">
+                            <span class="font-semibold text-base md:text-lg leading-[1.4] tracking-[-0.008em]">@nodenomad</span>
                         </div>
-                        <p class="text-base md:text-lg leading-[1.4] tracking-[-0.008em]">Boosts stacked. Position locked. Ready for March 31 launch day.</p>
+                        <p class="text-base md:text-lg leading-[1.4] tracking-[-0.008em]">Another ride hits the chain. Don't stand still while the internet moves. #RideTheInternet</p>
                     </div>
                 </div>
-                <div class="bg-[#f3f3f3] flex-shrink-0 w-[340px] md:w-[438px] h-[100px] md:h-[117px] rounded-xl px-3.5 py-3 flex items-start">
-                    <div class="flex flex-col gap-3 w-full h-full">
+                <div class="bg-[#f3f3f3] flex-shrink-0 w-[340px] md:w-[438px] h-[100px] md:h-[117px] rounded-xl overflow-clip px-3.5 py-3 flex items-center">
+                    <div class="flex flex-col gap-4 w-full h-full">
                         <div class="flex items-center gap-2.5">
-                            <img src="assets/avatar-placeholder.png" alt="" class="w-6 h-6 rounded-full object-cover">
-                            <span class="font-semibold text-base md:text-lg leading-[1.4] tracking-[-0.008em]">@alphaSeeker</span>
+                            <img src="assets/avatar-0xvelocity.png" alt="" class="w-6 h-6 rounded-full object-cover">
+                            <span class="font-semibold text-base md:text-lg leading-[1.4] tracking-[-0.008em]">@0xvelocity</span>
                         </div>
-                        <p class="text-base md:text-lg leading-[1.4] tracking-[-0.008em]">Fractionalized domains are the future. rides.com is just the beginning.</p>
+                        <p class="text-base md:text-lg leading-[1.4] tracking-[-0.008em]">Built for motion. Built for ownership. #RideTheInternet #DomainFi</p>
+                    </div>
+                </div>
+                <div class="bg-[#f3f3f3] flex-shrink-0 w-[340px] md:w-[438px] h-[100px] md:h-[117px] rounded-xl overflow-clip px-3.5 py-3 flex items-center">
+                    <div class="flex flex-col gap-4 w-full h-full">
+                        <div class="flex items-center gap-2.5">
+                            <img src="assets/avatar-cryptokaren-3.png" alt="" class="w-6 h-6 rounded-full object-cover">
+                            <span class="font-semibold text-base md:text-lg leading-[1.4] tracking-[-0.008em]">@cryptoKaren</span>
+                        </div>
+                        <p class="text-base md:text-lg leading-[1.4] tracking-[-0.008em]">Adding another bone to the pile. Join the domain hype now #BoneTheInternet #DomaLaunchpad</p>
                     </div>
                 </div>
             </div>
         </div>
 
         <!-- Text content — centered in bottom portion -->
-        <div class="absolute inset-x-0 bottom-0 flex flex-col gap-8 items-center px-6 pb-10 md:pb-16 lg:pb-[60px]" style="top: 369px;">
+        <div class="md:absolute md:inset-x-0 md:bottom-0 flex flex-col gap-8 items-center px-6 md:pb-16 lg:pb-[60px]" style="top: 369px;">
             <div class="flex flex-col gap-5 items-center text-center w-full max-w-[606px]">
-                <h2 class="font-heading font-semibold text-[32px] sm:text-[40px] md:text-[48px] lg:text-[56px] leading-[1.08] tracking-[-0.02em]">
+                <h2 class="font-heading font-semibold text-[36px] sm:text-[40px] md:text-[48px] lg:text-[56px] leading-[1.08] tracking-[-0.02em]">
                     Position early
                 </h2>
                 <p class="text-base md:text-lg leading-[1.4] tracking-[-0.008em]">
@@ -443,91 +458,84 @@
     </section>
 
     <!-- From Domain to Onchain Market Section -->
-    <section class="w-full px-6 md:px-16 lg:px-[140px] xl:px-[271px] py-16 md:py-24 lg:py-[120px]">
-        <div class="flex flex-col gap-12 md:gap-[72px] items-start justify-center w-full">
+    <section class="w-full px-4 md:px-16 lg:px-[140px] xl:px-[271px] py-8 md:py-24 lg:py-[120px]">
+        <div class="flex flex-col gap-[72px] items-start justify-center w-full">
 
             <!-- Text block + CTA -->
             <div class="flex flex-col gap-8 items-start w-full max-w-[862px]">
                 <div class="flex flex-col gap-5 items-start text-black w-full">
-                    <h2 class="font-heading font-semibold text-[32px] sm:text-[40px] md:text-[48px] lg:text-[56px] leading-[1.08] tracking-[-0.02em]">
+                    <h2 class="font-heading font-semibold text-[36px] sm:text-[40px] md:text-[48px] lg:text-[56px] leading-[1.08] tracking-[-0.02em]">
                         From domain to onchain market
                     </h2>
                     <p class="text-base md:text-lg leading-[1.4] tracking-[-0.008em]">
                         $RIDES.COM gives you early exposure to the next generation of rideshare and global transportation.
                     </p>
                 </div>
-                <a href="https://app.doma.xyz/" target="_blank" rel="noopener noreferrer" class="doma-link inline-flex items-center justify-center bg-black text-white font-semibold text-base md:text-lg leading-[1.4] tracking-[-0.008em] px-[22px] py-4 rounded-xl hover:bg-gray-900 transition-colors">
+                <a href="https://app.doma.xyz/" target="_blank" rel="noopener noreferrer" class="doma-link inline-flex items-center justify-center bg-black text-white font-semibold text-base md:text-lg leading-[1.4] tracking-[-0.008em] px-3.5 py-3 md:px-[22px] md:py-4 rounded-xl hover:bg-gray-900 transition-colors">
                     Explore Doma
                 </a>
             </div>
 
             <!-- Feature cards -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5 w-full">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-5 w-full">
 
                 <!-- Card 1: Tokenized launch -->
-                <div class="relative">
-                    <img src="assets/card-car.png" alt=""
-                         class="relative z-10 w-full h-auto pointer-events-none select-none">
-                    <div class="bg-[#f3f3f3] rounded-xl -mt-[45%] pt-[45%]">
-                        <div class="flex flex-col gap-4 md:gap-5 px-5 md:px-[27px] py-6 md:py-8">
-                            <h3 class="font-heading font-semibold text-[24px] md:text-[30px] lg:text-[36px] leading-[1.08] tracking-[-0.02em]">
-                                Tokenized launch
-                            </h3>
-                            <p class="text-base md:text-lg leading-[1.4] tracking-[-0.008em]">
-                                $RIDES.COM is not a ticker - it's a category-defining domain, now liquid on DNS-compliant infrastructure.
-                            </p>
-                        </div>
+                <div class="bg-[#f3f3f3] rounded-xl overflow-hidden">
+                    <img src="assets/card-tokenized.png" alt=""
+                         class="w-full h-[270px] md:h-[200px] lg:h-[260px] object-cover object-center pointer-events-none select-none">
+                    <div class="flex flex-col gap-5 px-[17px] md:px-[27px] py-5 md:py-8">
+                        <h3 class="font-heading font-semibold text-[28px] md:text-[30px] lg:text-[32px] leading-[1.08] tracking-[-0.02em]">
+                            Tokenized launch
+                        </h3>
+                        <p class="text-base md:text-lg leading-[1.4] tracking-[-0.008em]">
+                            $RIDES.COM initializes on a bonding curve, fractionalized and ready to flex.
+                        </p>
                     </div>
                 </div>
 
                 <!-- Card 2: Trading $RIDES.COM -->
-                <div class="relative">
-                    <img src="assets/card-car.png" alt=""
-                         class="relative z-10 w-full h-auto pointer-events-none select-none">
-                    <div class="bg-[#f3f3f3] rounded-xl -mt-[45%] pt-[45%]">
-                        <div class="flex flex-col gap-4 md:gap-5 px-5 md:px-[27px] py-6 md:py-8">
-                            <h3 class="font-heading font-semibold text-[24px] md:text-[30px] lg:text-[36px] leading-[1.08] tracking-[-0.02em]">
-                                Trading $RIDES.COM
-                            </h3>
-                            <p class="text-base md:text-lg leading-[1.4] tracking-[-0.008em]">
-                                $RIDES.COM is not a ticker - it's a category-defining domain, now liquid on DNS-compliant infrastructure.
-                            </p>
-                        </div>
+                <div class="bg-[#f3f3f3] rounded-xl overflow-hidden">
+                    <img src="assets/card-trading.png" alt=""
+                         class="w-full h-[270px] md:h-[200px] lg:h-[260px] object-cover object-center pointer-events-none select-none">
+                    <div class="flex flex-col gap-5 px-[17px] md:px-[27px] py-5 md:py-8">
+                        <h3 class="font-heading font-semibold text-[28px] md:text-[30px] lg:text-[32px] leading-[1.08] tracking-[-0.02em]">
+                            Trading $RIDES.COM
+                        </h3>
+                        <p class="text-base md:text-lg leading-[1.4] tracking-[-0.008em]">
+                            $RIDES.COM tokens move freely onchain. Buy, sell, or stake, you control the flex, and the rewards
+                        </p>
                     </div>
                 </div>
 
                 <!-- Card 3: Buyout = Payout -->
-                <div class="relative">
-                    <img src="assets/card-car.png" alt=""
-                         class="relative z-10 w-full h-auto pointer-events-none select-none">
-                    <div class="bg-[#f3f3f3] rounded-xl -mt-[45%] pt-[45%]">
-                        <div class="flex flex-col gap-4 md:gap-5 px-5 md:px-[27px] py-6 md:py-8">
-                            <h3 class="font-heading font-semibold text-[24px] md:text-[30px] lg:text-[36px] leading-[1.08] tracking-[-0.02em]">
-                                Buyout = Payout
-                            </h3>
-                            <p class="text-base md:text-lg leading-[1.4] tracking-[-0.008em]">
-                                $RIDES.COM is not a ticker - it's a category-defining domain, now liquid on DNS-compliant infrastructure.
-                            </p>
-                        </div>
+                <div class="bg-[#f3f3f3] rounded-xl overflow-hidden">
+                    <img src="assets/card-buyout.png" alt=""
+                         class="w-full h-[270px] md:h-[200px] lg:h-[260px] object-cover object-center pointer-events-none select-none">
+                    <div class="flex flex-col gap-5 px-[17px] md:px-[27px] py-5 md:py-8">
+                        <h3 class="font-heading font-semibold text-[28px] md:text-[30px] lg:text-[32px] leading-[1.08] tracking-[-0.02em]">
+                            Buyout = Payout
+                        </h3>
+                        <p class="text-base md:text-lg leading-[1.4] tracking-[-0.008em]">
+                            When someone buys out the domain, all holders get paid out at or above the floor.
+                        </p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Token Cards / Position Early Section -->
-    <section class="relative w-full h-[500px] md:h-[580px] lg:h-[629px] overflow-hidden">
+    <!-- Token Cards / A New Class of Asset Section -->
+    <section class="relative w-full h-[620px] md:h-[650px] lg:h-[629px] overflow-hidden">
 
-        <!-- Token cards with elliptical fade mask -->
-        <div class="absolute inset-x-0 top-[34px] h-[280px] flex items-center overflow-visible"
-             style="-webkit-mask-image: radial-gradient(ellipse 45% 80% at 50% 50%, black 45%, transparent 70%); mask-image: radial-gradient(ellipse 45% 80% at 50% 50%, black 45%, transparent 70%);">
+        <!-- Static token cards with elliptical fade mask -->
+        <div class="absolute inset-x-0 top-[34px] h-[260px] flex items-center justify-center token-cards-mask">
 
-            <div class="flex gap-[20px] items-center token-track" style="will-change: transform;">
-                <!-- 10 cards (5 types × 2) — duplicated below for seamless loop -->
-                <div class="token-card bg-[#f3f3f3] border border-[rgba(111,111,111,0.16)] flex flex-col gap-3.5 items-center pb-[23px] pt-[26px] px-5 rounded-[29px] shrink-0 w-[160px] md:w-[195px]">
+            <div class="flex gap-[20px] items-center justify-center">
+                <!-- Card 1 (side) -->
+                <div class="bg-[#f3f3f3] border border-[rgba(111,111,111,0.16)] flex flex-col gap-3.5 items-center pb-[23px] pt-[26px] px-5 rounded-[29px] shrink-0 w-[160px] md:w-[195px] opacity-80">
                     <img src="assets/token-thumb-1.svg" alt="" class="w-12 md:w-[59px] h-12 md:h-[59px]">
                     <div class="flex flex-col gap-2.5 items-center w-full">
-                        <p class="font-medium text-base md:text-xl leading-[1.2] text-center">Rides.com</p>
+                        <p class="font-medium text-base md:text-xl leading-[1.2] text-center">ride.com</p>
                         <div class="flex flex-col gap-2.5 items-center">
                             <p class="text-sm md:text-[15px] leading-[1.2] text-center">$1,480.65</p>
                             <div class="flex items-center gap-0.5 bg-[#00955d]/[0.12] rounded-xl px-1 py-1">
@@ -537,10 +545,11 @@
                         </div>
                     </div>
                 </div>
-                <div class="token-card bg-[#f3f3f3] border border-[rgba(111,111,111,0.16)] flex flex-col gap-3.5 items-center pb-[23px] pt-[26px] px-5 rounded-[29px] shrink-0 w-[160px] md:w-[195px]">
+                <!-- Card 2 (side) -->
+                <div class="bg-[#f3f3f3] border border-[rgba(111,111,111,0.16)] flex flex-col gap-3.5 items-center pb-[23px] pt-[26px] px-5 rounded-[29px] shrink-0 w-[160px] md:w-[195px] opacity-80">
                     <img src="assets/token-thumb-1.svg" alt="" class="w-12 md:w-[59px] h-12 md:h-[59px]">
                     <div class="flex flex-col gap-2.5 items-center w-full">
-                        <p class="font-medium text-base md:text-xl leading-[1.2] text-center">Rides.com</p>
+                        <p class="font-medium text-base md:text-xl leading-[1.2] text-center">ride.com</p>
                         <div class="flex flex-col gap-2.5 items-center">
                             <p class="text-sm md:text-[15px] leading-[1.2] text-center">$1,480.65</p>
                             <div class="flex items-center gap-0.5 bg-[#00955d]/[0.12] rounded-xl px-1 py-1">
@@ -550,28 +559,30 @@
                         </div>
                     </div>
                 </div>
-                <div class="token-card bg-[#f3f3f3] border border-[rgba(111,111,111,0.16)] flex flex-col gap-3.5 items-center pb-[23px] pt-[26px] px-5 rounded-[29px] shrink-0 w-[160px] md:w-[195px]">
-                    <div class="relative w-12 md:w-[59px] h-12 md:h-[59px]">
+                <!-- Card 3 (center featured) -->
+                <div class="bg-[#f3f3f3] border-[1.5px] border-[rgba(111,111,111,0.16)] flex flex-col gap-[18px] items-center pb-[29px] pt-[32px] px-[26px] rounded-[36px] shrink-0 w-[195px] md:w-[239px]">
+                    <div class="relative w-[52px] md:w-[72px] h-[52px] md:h-[72px] rounded-full border border-black/[0.02]">
                         <div class="absolute inset-0 bg-black/[0.12] rounded-full"></div>
                         <div class="absolute inset-[14%] rounded-full overflow-hidden">
                             <img src="assets/token-thumb-featured-icon.svg" alt="" class="w-full h-full">
                         </div>
                     </div>
-                    <div class="flex flex-col gap-2.5 items-center w-full">
-                        <p class="font-medium text-base md:text-xl leading-[1.2] text-center">Rides.com</p>
-                        <div class="flex flex-col gap-2.5 items-center">
-                            <p class="text-sm md:text-[15px] leading-[1.2] text-center">$1,480.65</p>
-                            <div class="flex items-center gap-0.5 bg-[#00955d]/[0.12] rounded-xl px-1 py-1">
-                                <svg class="w-[7px] h-[7px]" viewBox="0 0 7.32 7.32" fill="none"><path d="M5.115 2.941c-.634-.922-.95-1.383-1.391-1.413a1.1 1.1 0 0 0-.126 0c-.441.03-.758.491-1.391 1.413-.801 1.166-1.202 1.748-1.002 2.212.019.043.041.085.066.125.269.428.976.428 2.39.428s2.121 0 2.39-.428a1 1 0 0 0 .066-.125c.2-.464-.2-1.046-1.002-2.212Z" fill="#00955d"/></svg>
-                                <span class="text-[#00955d] text-[10px] font-medium leading-[1.2]">$24.67%</span>
+                    <div class="flex flex-col gap-3 items-center w-full">
+                        <p class="font-medium text-lg md:text-2xl leading-[1.2] text-center">ride.com</p>
+                        <div class="flex flex-col gap-3 items-center">
+                            <p class="text-[15px] md:text-lg leading-[1.2] text-center">$1,480.65</p>
+                            <div class="flex items-center gap-0.5 bg-[#00955d]/[0.12] rounded-xl px-1 py-1.5">
+                                <svg class="w-2 h-2" viewBox="0 0 7.32 7.32" fill="none"><path d="M5.115 2.941c-.634-.922-.95-1.383-1.391-1.413a1.1 1.1 0 0 0-.126 0c-.441.03-.758.491-1.391 1.413-.801 1.166-1.202 1.748-1.002 2.212.019.043.041.085.066.125.269.428.976.428 2.39.428s2.121 0 2.39-.428a1 1 0 0 0 .066-.125c.2-.464-.2-1.046-1.002-2.212Z" fill="#00955d"/></svg>
+                                <span class="text-[#00955d] text-[10px] md:text-xs font-medium leading-[1.2]">$24.67%</span>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="token-card bg-[#f3f3f3] border border-[rgba(111,111,111,0.16)] flex flex-col gap-3.5 items-center pb-[23px] pt-[26px] px-5 rounded-[29px] shrink-0 w-[160px] md:w-[195px]">
+                <!-- Card 4 (side) -->
+                <div class="bg-[#f3f3f3] border border-[rgba(111,111,111,0.16)] flex flex-col gap-3.5 items-center pb-[23px] pt-[26px] px-5 rounded-[29px] shrink-0 w-[160px] md:w-[195px] opacity-80">
                     <img src="assets/token-thumb-2.svg" alt="" class="w-12 md:w-[59px] h-12 md:h-[59px]">
                     <div class="flex flex-col gap-2.5 items-center w-full">
-                        <p class="font-medium text-base md:text-xl leading-[1.2] text-center">Rides.com</p>
+                        <p class="font-medium text-base md:text-xl leading-[1.2] text-center">ride.com</p>
                         <div class="flex flex-col gap-2.5 items-center">
                             <p class="text-sm md:text-[15px] leading-[1.2] text-center">$1,480.65</p>
                             <div class="flex items-center gap-0.5 bg-[#00955d]/[0.12] rounded-xl px-1 py-1">
@@ -581,81 +592,11 @@
                         </div>
                     </div>
                 </div>
-                <div class="token-card bg-[#f3f3f3] border border-[rgba(111,111,111,0.16)] flex flex-col gap-3.5 items-center pb-[23px] pt-[26px] px-5 rounded-[29px] shrink-0 w-[160px] md:w-[195px]">
+                <!-- Card 5 (side) -->
+                <div class="bg-[#f3f3f3] border border-[rgba(111,111,111,0.16)] flex flex-col gap-3.5 items-center pb-[23px] pt-[26px] px-5 rounded-[29px] shrink-0 w-[160px] md:w-[195px] opacity-80">
                     <img src="assets/token-thumb-2.svg" alt="" class="w-12 md:w-[59px] h-12 md:h-[59px]">
                     <div class="flex flex-col gap-2.5 items-center w-full">
-                        <p class="font-medium text-base md:text-xl leading-[1.2] text-center">Rides.com</p>
-                        <div class="flex flex-col gap-2.5 items-center">
-                            <p class="text-sm md:text-[15px] leading-[1.2] text-center">$1,480.65</p>
-                            <div class="flex items-center gap-0.5 bg-[#00955d]/[0.12] rounded-xl px-1 py-1">
-                                <svg class="w-[7px] h-[7px]" viewBox="0 0 7.32 7.32" fill="none"><path d="M5.115 2.941c-.634-.922-.95-1.383-1.391-1.413a1.1 1.1 0 0 0-.126 0c-.441.03-.758.491-1.391 1.413-.801 1.166-1.202 1.748-1.002 2.212.019.043.041.085.066.125.269.428.976.428 2.39.428s2.121 0 2.39-.428a1 1 0 0 0 .066-.125c.2-.464-.2-1.046-1.002-2.212Z" fill="#00955d"/></svg>
-                                <span class="text-[#00955d] text-[10px] font-medium leading-[1.2]">$24.67%</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Duplicate set for seamless loop -->
-                <div class="token-card bg-[#f3f3f3] border border-[rgba(111,111,111,0.16)] flex flex-col gap-3.5 items-center pb-[23px] pt-[26px] px-5 rounded-[29px] shrink-0 w-[160px] md:w-[195px]">
-                    <img src="assets/token-thumb-1.svg" alt="" class="w-12 md:w-[59px] h-12 md:h-[59px]">
-                    <div class="flex flex-col gap-2.5 items-center w-full">
-                        <p class="font-medium text-base md:text-xl leading-[1.2] text-center">Rides.com</p>
-                        <div class="flex flex-col gap-2.5 items-center">
-                            <p class="text-sm md:text-[15px] leading-[1.2] text-center">$1,480.65</p>
-                            <div class="flex items-center gap-0.5 bg-[#00955d]/[0.12] rounded-xl px-1 py-1">
-                                <svg class="w-[7px] h-[7px]" viewBox="0 0 7.32 7.32" fill="none"><path d="M5.115 2.941c-.634-.922-.95-1.383-1.391-1.413a1.1 1.1 0 0 0-.126 0c-.441.03-.758.491-1.391 1.413-.801 1.166-1.202 1.748-1.002 2.212.019.043.041.085.066.125.269.428.976.428 2.39.428s2.121 0 2.39-.428a1 1 0 0 0 .066-.125c.2-.464-.2-1.046-1.002-2.212Z" fill="#00955d"/></svg>
-                                <span class="text-[#00955d] text-[10px] font-medium leading-[1.2]">$24.67%</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="token-card bg-[#f3f3f3] border border-[rgba(111,111,111,0.16)] flex flex-col gap-3.5 items-center pb-[23px] pt-[26px] px-5 rounded-[29px] shrink-0 w-[160px] md:w-[195px]">
-                    <img src="assets/token-thumb-1.svg" alt="" class="w-12 md:w-[59px] h-12 md:h-[59px]">
-                    <div class="flex flex-col gap-2.5 items-center w-full">
-                        <p class="font-medium text-base md:text-xl leading-[1.2] text-center">Rides.com</p>
-                        <div class="flex flex-col gap-2.5 items-center">
-                            <p class="text-sm md:text-[15px] leading-[1.2] text-center">$1,480.65</p>
-                            <div class="flex items-center gap-0.5 bg-[#00955d]/[0.12] rounded-xl px-1 py-1">
-                                <svg class="w-[7px] h-[7px]" viewBox="0 0 7.32 7.32" fill="none"><path d="M5.115 2.941c-.634-.922-.95-1.383-1.391-1.413a1.1 1.1 0 0 0-.126 0c-.441.03-.758.491-1.391 1.413-.801 1.166-1.202 1.748-1.002 2.212.019.043.041.085.066.125.269.428.976.428 2.39.428s2.121 0 2.39-.428a1 1 0 0 0 .066-.125c.2-.464-.2-1.046-1.002-2.212Z" fill="#00955d"/></svg>
-                                <span class="text-[#00955d] text-[10px] font-medium leading-[1.2]">$24.67%</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="token-card bg-[#f3f3f3] border border-[rgba(111,111,111,0.16)] flex flex-col gap-3.5 items-center pb-[23px] pt-[26px] px-5 rounded-[29px] shrink-0 w-[160px] md:w-[195px]">
-                    <div class="relative w-12 md:w-[59px] h-12 md:h-[59px]">
-                        <div class="absolute inset-0 bg-black/[0.12] rounded-full"></div>
-                        <div class="absolute inset-[14%] rounded-full overflow-hidden">
-                            <img src="assets/token-thumb-featured-icon.svg" alt="" class="w-full h-full">
-                        </div>
-                    </div>
-                    <div class="flex flex-col gap-2.5 items-center w-full">
-                        <p class="font-medium text-base md:text-xl leading-[1.2] text-center">Rides.com</p>
-                        <div class="flex flex-col gap-2.5 items-center">
-                            <p class="text-sm md:text-[15px] leading-[1.2] text-center">$1,480.65</p>
-                            <div class="flex items-center gap-0.5 bg-[#00955d]/[0.12] rounded-xl px-1 py-1">
-                                <svg class="w-[7px] h-[7px]" viewBox="0 0 7.32 7.32" fill="none"><path d="M5.115 2.941c-.634-.922-.95-1.383-1.391-1.413a1.1 1.1 0 0 0-.126 0c-.441.03-.758.491-1.391 1.413-.801 1.166-1.202 1.748-1.002 2.212.019.043.041.085.066.125.269.428.976.428 2.39.428s2.121 0 2.39-.428a1 1 0 0 0 .066-.125c.2-.464-.2-1.046-1.002-2.212Z" fill="#00955d"/></svg>
-                                <span class="text-[#00955d] text-[10px] font-medium leading-[1.2]">$24.67%</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="token-card bg-[#f3f3f3] border border-[rgba(111,111,111,0.16)] flex flex-col gap-3.5 items-center pb-[23px] pt-[26px] px-5 rounded-[29px] shrink-0 w-[160px] md:w-[195px]">
-                    <img src="assets/token-thumb-2.svg" alt="" class="w-12 md:w-[59px] h-12 md:h-[59px]">
-                    <div class="flex flex-col gap-2.5 items-center w-full">
-                        <p class="font-medium text-base md:text-xl leading-[1.2] text-center">Rides.com</p>
-                        <div class="flex flex-col gap-2.5 items-center">
-                            <p class="text-sm md:text-[15px] leading-[1.2] text-center">$1,480.65</p>
-                            <div class="flex items-center gap-0.5 bg-[#00955d]/[0.12] rounded-xl px-1 py-1">
-                                <svg class="w-[7px] h-[7px]" viewBox="0 0 7.32 7.32" fill="none"><path d="M5.115 2.941c-.634-.922-.95-1.383-1.391-1.413a1.1 1.1 0 0 0-.126 0c-.441.03-.758.491-1.391 1.413-.801 1.166-1.202 1.748-1.002 2.212.019.043.041.085.066.125.269.428.976.428 2.39.428s2.121 0 2.39-.428a1 1 0 0 0 .066-.125c.2-.464-.2-1.046-1.002-2.212Z" fill="#00955d"/></svg>
-                                <span class="text-[#00955d] text-[10px] font-medium leading-[1.2]">$24.67%</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="token-card bg-[#f3f3f3] border border-[rgba(111,111,111,0.16)] flex flex-col gap-3.5 items-center pb-[23px] pt-[26px] px-5 rounded-[29px] shrink-0 w-[160px] md:w-[195px]">
-                    <img src="assets/token-thumb-2.svg" alt="" class="w-12 md:w-[59px] h-12 md:h-[59px]">
-                    <div class="flex flex-col gap-2.5 items-center w-full">
-                        <p class="font-medium text-base md:text-xl leading-[1.2] text-center">Rides.com</p>
+                        <p class="font-medium text-base md:text-xl leading-[1.2] text-center">ride.com</p>
                         <div class="flex flex-col gap-2.5 items-center">
                             <p class="text-sm md:text-[15px] leading-[1.2] text-center">$1,480.65</p>
                             <div class="flex items-center gap-0.5 bg-[#00955d]/[0.12] rounded-xl px-1 py-1">
@@ -669,13 +610,13 @@
         </div>
 
         <!-- Text content — centered in bottom portion -->
-        <div class="absolute inset-x-0 bottom-0 flex flex-col gap-8 items-center px-6 pb-10 md:pb-16 lg:pb-[60px]" style="top: 369px;">
+        <div class="absolute inset-x-0 bottom-0 flex flex-col gap-8 items-center px-6 pb-10 md:pb-16 lg:pb-[60px] top-[338px] md:top-[369px]">
             <div class="flex flex-col gap-5 items-center text-center w-full max-w-[606px]">
-                <h2 class="font-heading font-semibold text-[32px] sm:text-[40px] md:text-[48px] lg:text-[56px] leading-[1.08] tracking-[-0.02em]">
-                    Position early
+                <h2 class="font-heading font-semibold text-[36px] sm:text-[40px] md:text-[48px] lg:text-[56px] leading-[1.08] tracking-[-0.02em]">
+                    A new class of asset
                 </h2>
                 <p class="text-base md:text-lg leading-[1.4] tracking-[-0.008em]">
-                    Enter before the next generation of transportation brands emerges.
+                    $RIDES.COM is not a ticker - it's a category-defining domain,<br class="hidden sm:inline"> now liquid on DNS-compliant infrastructure.
                 </p>
             </div>
             <a href="https://x.com/intent/tweet?text=Rides%E2%80%A4com%20is%20launching%20on%20%40domaprotocol%20March%2031st%2C%204%3A00%20UTC.%0A%0AOne%20of%20the%20internet%E2%80%99s%20strongest%20category%20domains%20is%20going%20onchain%20as%20%24RIDES.COM.%0A%0AStack%20the%20boost%20bar%20now%2C%20check%20it%20out%3A%20https%3A%2F%2Frides.com" target="_blank" rel="noopener noreferrer" class="doma-link inline-flex items-center justify-center bg-black text-white font-semibold text-base md:text-lg leading-[1.4] tracking-[-0.008em] px-[22px] py-4 rounded-xl hover:bg-gray-900 transition-colors">
@@ -685,35 +626,38 @@
     </section>
 
     <!-- Position Early CTA Banner -->
-    <section class="w-full px-6 md:px-16 lg:px-[140px] xl:px-[271px]">
-        <div class="relative bg-[#f3f3f3] rounded-xl overflow-hidden w-full min-h-[260px] sm:min-h-[290px] md:min-h-[329px]">
+    <section class="w-full px-6 md:px-16 lg:px-[140px] xl:px-[271px] pt-12 md:pt-16 lg:pt-20">
+        <div class="relative bg-[#f3f3f3] rounded-xl overflow-hidden w-full min-h-[260px] sm:min-h-[290px] md:min-h-[329px] px-6 sm:px-8 md:px-[51px] py-10 md:py-[68px]">
 
             <!-- Text content -->
-            <div class="relative z-10 flex flex-col gap-6 md:gap-8 items-start px-6 sm:px-8 md:px-[51px] py-10 md:py-[68px] w-full max-w-[708px]">
+            <div class="relative z-10 flex flex-col gap-6 md:gap-8 items-start w-full max-w-[725px]">
                 <div class="flex flex-col gap-4 md:gap-5 items-start text-black w-full">
-                    <h2 class="font-heading font-semibold text-[32px] sm:text-[40px] md:text-[48px] lg:text-[56px] leading-[1.08] tracking-[-0.02em]">
-                        Position early
+                    <h2 class="font-heading font-semibold text-[clamp(28px,3.8vw,56px)] leading-[1.08] tracking-[-0.02em]">
+                        Stay ahead of the market. rides.com becomes liquid.
                     </h2>
                     <p class="text-base md:text-lg leading-[1.4] tracking-[-0.008em]">
-                        Enter before the next generation of transportation brands emerges.
+                        Get alerts when $<a href="http://app.doma.xyz/domain/rides.com" class="underline decoration-solid">RIDES.COM</a> and future tokens launch. Own the category before the category owns you.
                     </p>
                 </div>
-                <a href="https://x.com/intent/tweet?text=Rides%E2%80%A4com%20is%20launching%20on%20%40domaprotocol%20March%2031st%2C%204%3A00%20UTC.%0A%0AOne%20of%20the%20internet%E2%80%99s%20strongest%20category%20domains%20is%20going%20onchain%20as%20%24RIDES.COM.%0A%0AStack%20the%20boost%20bar%20now%2C%20check%20it%20out%3A%20https%3A%2F%2Frides.com" target="_blank" rel="noopener noreferrer" class="doma-link inline-flex items-center justify-center bg-black text-white font-semibold text-base md:text-lg leading-[1.4] tracking-[-0.008em] px-[22px] py-4 rounded-xl hover:bg-gray-900 transition-colors">
-                    Stack Boosts
-                </a>
+                <form class="flex flex-col sm:flex-row gap-2 items-stretch sm:items-start w-full sm:w-auto" onsubmit="return false;">
+                    <input type="email" placeholder="Email" class="w-full sm:w-[318px] bg-white border border-[#afafaf] text-base md:text-lg leading-[1.4] tracking-[-0.008em] px-[22px] py-4 rounded-xl outline-none placeholder-[#848181]">
+                    <button type="submit" class="bg-black text-white font-semibold text-base md:text-lg leading-[1.4] tracking-[-0.008em] px-[22px] py-4 rounded-xl hover:bg-gray-900 transition-colors whitespace-nowrap">
+                        Sign up
+                    </button>
+                </form>
             </div>
 
             <!-- Decorative coins — right side, hidden on small screens -->
-            <div class="hidden md:block absolute inset-0 pointer-events-none">
-                <!-- g3 coin — top right, faded -->
-                <img src="assets/coin-g2.png" alt="" class="absolute w-[180px] lg:w-[220px] xl:w-[276px] opacity-[0.38] right-[-2%] top-[-2%]">
+            <div class="hidden md:block absolute inset-0 pointer-events-none overflow-hidden">
+                <!-- g2 coin — top right, faded -->
+                <img src="assets/coin-g2.png" alt="" class="absolute w-[180px] lg:w-[220px] xl:w-[276px] opacity-[0.38] right-[-2%] top-[-5%]">
 
-                <!-- g3 coin — flipped, center right -->
-                <img src="assets/coin-g3.png" alt="" class="absolute w-[160px] lg:w-[200px] xl:w-[253px] opacity-[0.35] right-[13%] bottom-[42%]">
+                <!-- g3 coin — upper right, overlapping g2 -->
+                <img src="assets/coin-g3.png" alt="" class="absolute w-[160px] lg:w-[200px] xl:w-[253px] opacity-[0.35] right-[10%] top-[-8%]">
                 <!-- g4 coin — large, bottom center-right -->
-                <img src="assets/coin-g4.png" alt="" class="absolute w-[160px] lg:w-[190px] xl:w-[236px] right-[8%] bottom-[-1%]" style="transform: rotate(-12.97deg);">
+                <img src="assets/coin-g4.png" alt="" class="absolute w-[160px] lg:w-[190px] xl:w-[236px] right-[8%] bottom-[-8%]" style="transform: rotate(-12.97deg);">
                 <!-- g5 coin — far right -->
-                <img src="assets/coin-g5.png" alt="" class="absolute w-[140px] lg:w-[160px] xl:w-[176px] opacity-80 right-[-1%] bottom-[-1%]">
+                <img src="assets/coin-g5.png" alt="" class="absolute w-[140px] lg:w-[160px] xl:w-[176px] opacity-80 right-[-1%] bottom-[-5%]">
             </div>
         </div>
     </section>
@@ -725,7 +669,7 @@
             <!-- Text content -->
             <div class="relative z-10 flex flex-col gap-6 md:gap-8 items-start px-6 sm:px-8 md:px-[62px] py-10 md:py-[81px] w-full max-w-[606px]">
                 <div class="flex flex-col gap-4 md:gap-5 items-start text-white w-full">
-                    <h2 class="font-heading font-semibold text-[32px] sm:text-[40px] md:text-[48px] lg:text-[56px] leading-[1.08] tracking-[-0.02em]">
+                    <h2 class="font-heading font-semibold text-[clamp(28px,3.8vw,56px)] leading-[1.08] tracking-[-0.02em]">
                         Prepare for launch
                     </h2>
                     <p class="text-base md:text-lg leading-[1.4] tracking-[-0.008em]">
@@ -740,7 +684,7 @@
             <!-- Decorative road + cars — hidden on small screens -->
             <div class="hidden md:block absolute inset-0 pointer-events-none">
                 <!-- Road + cars share one coordinate system so they scale together -->
-                <div class="absolute left-[17%] top-[14%] w-[90%]" style="aspect-ratio: 1247.08 / 410.893;">
+                <div class="absolute left-[17%] bottom-0 translate-y-[20%] w-[90%]" style="aspect-ratio: 1247.08 / 410.893;">
                     <!-- Dashed road line -->
                     <svg class="absolute inset-0 w-full h-full" viewBox="0 0 1247.08 410.893" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
                         <path d="M0.942 410.557C29.442 330.89 203.842 180.057 673.442 214.057C1143.04 248.057 1250.77 85.557 1245.94 0.056" stroke="white" stroke-opacity="0.43" stroke-width="2" stroke-dasharray="8 8"/>
@@ -761,28 +705,28 @@
 
     <!-- Footer car -->
     <div class="w-full">
-        <img src="assets/footer-car.png" alt="" class="w-[100px] md:w-[140px] lg:w-[177px] h-auto" loading="lazy" decoding="async">
+        <img src="assets/footer-car.png" alt="" class="w-[100px] md:w-[140px] lg:w-[177px] h-auto -mb-[4px]" loading="lazy" decoding="async">
     </div>
 
     <!-- Footer -->
-    <footer class="w-full border-t-[0.5px] border-b-[0.5px] border-black px-6 md:px-16 lg:px-[140px] xl:pl-[272px] xl:pr-[208px] py-5 md:py-7">
-        <div class="flex flex-col gap-4 md:gap-6">
+    <footer class="w-full border-t-[0.5px] border-b-[0.5px] border-[#5e5e5e] md:border-black px-4 md:px-16 lg:px-[140px] xl:pl-[272px] xl:pr-[208px] py-7">
+        <div class="flex flex-col gap-6">
 
             <!-- Top row -->
-            <div class="flex flex-wrap items-center gap-3 text-sm leading-[1.34] tracking-[-0.0112px]">
+            <div class="flex flex-wrap items-center gap-3 text-xs md:text-sm text-[#5e5e5e] md:text-black leading-[1.34] tracking-[-0.008em]">
                 <!-- Doma logo + year -->
                 <div class="flex items-center gap-2">
-                    <img src="assets/doma-logo.svg" alt="Doma" class="h-[13px] w-[63px]">
+                    <img src="assets/doma-logo.svg" alt="Doma" class="h-[12px] md:h-[13px] w-auto">
                     <span>2026</span>
                 </div>
-                <span class="w-[2px] h-[2px] bg-black rounded-full"></span>
+                <span class="w-[2px] h-[2px] bg-[#5e5e5e] md:bg-black rounded-full"></span>
                 <a href="https://doma.xyz/terms" target="_blank" rel="noopener noreferrer" class="hover:underline">Terms &amp; Conditions</a>
-                <span class="w-[2px] h-[2px] bg-black rounded-full"></span>
+                <span class="w-[2px] h-[2px] bg-[#5e5e5e] md:bg-black rounded-full"></span>
                 <a href="https://doma.xyz/privacy" target="_blank" rel="noopener noreferrer" class="hover:underline">Privacy Notice</a>
             </div>
 
             <!-- Copyright -->
-            <p class="text-xs leading-[1.44]">
+            <p class="text-xs leading-[1.44] text-[#5e5e5e] md:text-black">
                 Copyright &copy; 2026 Doma. All Rights Reserved. By visiting or using this site, you agree to be bound by our Terms of Service and Privacy Policy.
             </p>
         </div>
@@ -793,7 +737,7 @@
     <!-- Countdown Timer Script -->
     <script>
         (function() {
-            const launchDate = new Date('2026-03-31T12:00:00Z');
+            const launchDate = new Date('2026-03-31T04:00:00Z');
 
             function updateCountdown() {
                 const now = new Date();
@@ -820,57 +764,6 @@
 
             updateCountdown();
             setInterval(updateCountdown, 1000);
-        })();
-    </script>
-
-    <!-- Token Carousel: JS-driven scroll + center scale -->
-    <script>
-        (function() {
-            var track = document.querySelector('.token-track');
-            var cards = document.querySelectorAll('.token-card');
-            if (!track || !cards.length) return;
-
-            var scrollPos = 0;
-            var speed = 0.8; // px per frame
-            var halfCards = cards.length / 2;
-            // Calculate total width of first half (for seamless loop reset)
-            var totalHalfWidth = 0;
-
-            function measureHalf() {
-                totalHalfWidth = 0;
-                for (var i = 0; i < halfCards; i++) {
-                    totalHalfWidth += cards[i].offsetWidth + 20; // 20px gap
-                }
-            }
-            measureHalf();
-            window.addEventListener('resize', measureHalf);
-
-            function animate() {
-                scrollPos += speed;
-                if (scrollPos >= totalHalfWidth) {
-                    scrollPos -= totalHalfWidth;
-                }
-                track.style.transform = 'translateX(' + (-scrollPos) + 'px)';
-
-                var vpCenter = window.innerWidth / 2;
-                var radius = 250; // px from center where scaling kicks in
-                cards.forEach(function(card) {
-                    var rect = card.getBoundingClientRect();
-                    var cardCenter = rect.left + rect.width / 2;
-                    var dist = Math.abs(cardCenter - vpCenter);
-                    // Sharp falloff: only cards very close to center scale up
-                    var t = Math.max(0, 1 - dist / radius);
-                    t = t * t; // ease-in curve for sharper falloff
-                    var scale = 1 + t * 0.22;
-                    var opacity = 0.8 + t * 0.2;
-                    var zIndex = Math.round(t * 10);
-                    card.style.transform = 'scale(' + scale.toFixed(3) + ')';
-                    card.style.opacity = opacity.toFixed(3);
-                    card.style.zIndex = zIndex;
-                });
-                requestAnimationFrame(animate);
-            }
-            requestAnimationFrame(animate);
         })();
     </script>
 
