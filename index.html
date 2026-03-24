@@ -15,58 +15,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inter:wght@100..900&display=swap" rel="stylesheet">
 
-    <!-- Tailwind CSS Play CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'system-ui', 'sans-serif'],
-                        heading: ['"DM Sans"', 'system-ui', 'sans-serif'],
-                    },
-                },
-            },
-        }
-    </script>
-
-    <style type="text/tailwindcss">
-        @layer utilities {
-            .text-tracking-tight { letter-spacing: -0.02em; }
-            .text-tracking-tighter { letter-spacing: -0.008em; }
-        }
-    </style>
-    <style>
-        @keyframes marquee-left {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-        }
-        @keyframes marquee-right {
-            0% { transform: translateX(-50%); }
-            100% { transform: translateX(0); }
-        }
-        .font-heading {
-            font-variation-settings: 'opsz' 14;
-        }
-        .animate-marquee-left {
-            animation: marquee-left 40s linear infinite;
-        }
-        .animate-marquee-right {
-            animation: marquee-right 40s linear infinite;
-        }
-
-        /* Token cards mask — wider on mobile to show side cards */
-        .token-cards-mask {
-            -webkit-mask-image: radial-gradient(ellipse 65% 80% at 50% 50%, black 45%, transparent 70%);
-            mask-image: radial-gradient(ellipse 65% 80% at 50% 50%, black 45%, transparent 70%);
-        }
-        @media (min-width: 768px) {
-            .token-cards-mask {
-                -webkit-mask-image: radial-gradient(ellipse 45% 80% at 50% 50%, black 45%, transparent 70%);
-                mask-image: radial-gradient(ellipse 45% 80% at 50% 50%, black 45%, transparent 70%);
-            }
-        }
-    </style>
+    <!-- Tailwind CSS (compiled) -->
+    <link rel="stylesheet" href="assets/styles.css">
 </head>
 <body class="font-sans text-black antialiased bg-white overflow-x-hidden">
 
