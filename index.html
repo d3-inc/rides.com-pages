@@ -582,8 +582,11 @@
                         Get alerts when $<a href="https://app.doma.xyz/domain/rides.com" class="underline decoration-solid">RIDES.COM</a> and future tokens launch. Own the category before the category owns you.
                     </p>
                 </div>
-                <form class="flex flex-col sm:flex-row gap-2 items-stretch sm:items-start w-full sm:w-auto" onsubmit="return false;">
-                    <input type="email" placeholder="Email" class="w-full sm:w-[318px] bg-white border border-[#afafaf] text-base md:text-lg leading-[1.4] tracking-[-0.008em] px-[22px] py-4 rounded-xl outline-none placeholder-[#848181]">
+                <form id="signup-form" class="flex flex-col sm:flex-row gap-2 items-stretch sm:items-start w-full sm:w-auto">
+                    <input type="email" name="email" placeholder="Email" required class="w-full sm:w-[318px] bg-white border border-[#afafaf] text-base md:text-lg leading-[1.4] tracking-[-0.008em] px-[22px] py-4 rounded-xl outline-none placeholder-[#848181]">
+                    <div style="position:absolute;left:-9999px;" aria-hidden="true">
+                        <input type="text" name="website" tabindex="-1" autocomplete="off">
+                    </div>
                     <button type="submit" class="bg-black text-white font-semibold text-base md:text-lg leading-[1.4] tracking-[-0.008em] px-[22px] py-4 rounded-xl hover:bg-gray-900 transition-colors whitespace-nowrap">
                         Sign up
                     </button>
@@ -734,6 +737,55 @@
                     link.href = url.toString();
                 });
             }
+        })();
+    </script>
+
+    <!-- Email signup form submission -->
+    <script>
+        (function() {
+            var SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbycbR6rNc30PayRBvkB5SiPvOXvyYyTROkge9n9k0pm5UL5X8Mc4m1tV1AU4nmVjZlJ/exec';
+            var form = document.getElementById('signup-form');
+            if (!form) return;
+
+            var btn = form.querySelector('button[type="submit"]');
+            var input = form.querySelector('input[name="email"]');
+            var originalText = btn.textContent;
+
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                var honeypot = form.querySelector('input[name="website"]');
+                if (honeypot && honeypot.value) return;
+
+                var email = input.value.trim();
+                if (!email) return;
+
+                btn.textContent = 'Signing up...';
+                btn.disabled = true;
+
+                fetch(SCRIPT_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'text/plain' },
+                    body: JSON.stringify({ email: email })
+                })
+                .then(function(res) { return res.json(); })
+                .then(function(data) {
+                    if (data.result === 'success') {
+                        btn.textContent = 'Subscribed!';
+                        input.value = '';
+                    } else {
+                        btn.textContent = data.message || 'Try again';
+                    }
+                })
+                .catch(function() {
+                    btn.textContent = 'Try again';
+                })
+                .finally(function() {
+                    setTimeout(function() {
+                        btn.textContent = originalText;
+                        btn.disabled = false;
+                    }, 3000);
+                });
+            });
         })();
     </script>
 
