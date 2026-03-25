@@ -78,7 +78,7 @@
 
             <!-- Countdown timer -->
             <div class="flex items-center justify-center gap-1.5 sm:gap-3 md:gap-6 tabular-nums" id="countdown">
-                <span class="font-heading font-semibold text-[clamp(36px,8vw,80px)] leading-[1.08] tracking-[-0.02em]" id="countdown-days">--d</span>
+                <span class="font-heading font-semibold text-[clamp(36px,8vw,80px)] leading-[1.08] tracking-[-0.02em] inline-block min-w-[2.5ch] text-right" id="countdown-days">--d</span>
 
                 <!-- Colon separator -->
                 <div class="flex flex-col gap-3">
@@ -86,7 +86,7 @@
                     <div class="w-2 h-2 md:w-2.5 md:h-2.5 rounded-full bg-[#D9D9D9]"></div>
                 </div>
 
-                <span class="font-heading font-semibold text-[clamp(36px,8vw,80px)] leading-[1.08] tracking-[-0.02em]" id="countdown-hours">--h</span>
+                <span class="font-heading font-semibold text-[clamp(36px,8vw,80px)] leading-[1.08] tracking-[-0.02em] inline-block min-w-[2.5ch] text-right" id="countdown-hours">--h</span>
 
                 <!-- Colon separator -->
                 <div class="flex flex-col gap-3">
@@ -94,7 +94,7 @@
                     <div class="w-2 h-2 md:w-2.5 md:h-2.5 rounded-full bg-[#D9D9D9]"></div>
                 </div>
 
-                <span class="font-heading font-semibold text-[clamp(36px,8vw,80px)] leading-[1.08] tracking-[-0.02em]" id="countdown-minutes">--m</span>
+                <span class="font-heading font-semibold text-[clamp(36px,8vw,80px)] leading-[1.08] tracking-[-0.02em] inline-block min-w-[2.5ch] text-right" id="countdown-minutes">--m</span>
 
                 <!-- Colon separator -->
                 <div class="flex flex-col gap-3">
@@ -102,7 +102,7 @@
                     <div class="w-2 h-2 md:w-2.5 md:h-2.5 rounded-full bg-[#D9D9D9]"></div>
                 </div>
 
-                <span class="font-heading font-semibold text-[clamp(36px,8vw,80px)] leading-[1.08] tracking-[-0.02em]" id="countdown-seconds">--s</span>
+                <span class="font-heading font-semibold text-[clamp(36px,8vw,80px)] leading-[1.08] tracking-[-0.02em] inline-block min-w-[2.5ch] text-right" id="countdown-seconds">--s</span>
             </div>
         </div>
     </section>
@@ -699,10 +699,10 @@
                 const diff = launchDate - now;
 
                 if (diff <= 0) {
-                    document.getElementById('countdown-days').textContent = '0d';
-                    document.getElementById('countdown-hours').textContent = '0h';
-                    document.getElementById('countdown-minutes').textContent = '0m';
-                    document.getElementById('countdown-seconds').textContent = '0s';
+                    document.getElementById('countdown-days').textContent = '00d';
+                    document.getElementById('countdown-hours').textContent = '00h';
+                    document.getElementById('countdown-minutes').textContent = '00m';
+                    document.getElementById('countdown-seconds').textContent = '00s';
                     return;
                 }
 
@@ -711,10 +711,10 @@
                 const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
                 const seconds = Math.floor((diff % (1000 * 60)) / 1000);
 
-                document.getElementById('countdown-days').textContent = days + 'd';
-                document.getElementById('countdown-hours').textContent = hours + 'h';
-                document.getElementById('countdown-minutes').textContent = minutes + 'm';
-                document.getElementById('countdown-seconds').textContent = seconds + 's';
+                document.getElementById('countdown-days').textContent = String(days).padStart(2, '0') + 'd';
+                document.getElementById('countdown-hours').textContent = String(hours).padStart(2, '0') + 'h';
+                document.getElementById('countdown-minutes').textContent = String(minutes).padStart(2, '0') + 'm';
+                document.getElementById('countdown-seconds').textContent = String(seconds).padStart(2, '0') + 's';
             }
 
             updateCountdown();
