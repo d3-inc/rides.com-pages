@@ -15,65 +15,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inter:wght@100..900&display=swap" rel="stylesheet">
 
-    <!-- Tailwind CSS Play CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'system-ui', 'sans-serif'],
-                        heading: ['"DM Sans"', 'system-ui', 'sans-serif'],
-                    },
-                },
-            },
-        }
-    </script>
-
-    <style type="text/tailwindcss">
-        @layer utilities {
-            .text-tracking-tight { letter-spacing: -0.02em; }
-            .text-tracking-tighter { letter-spacing: -0.008em; }
-        }
-    </style>
-    <style>
-        @keyframes marquee-left {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-        }
-        @keyframes marquee-right {
-            0% { transform: translateX(-50%); }
-            100% { transform: translateX(0); }
-        }
-        .font-heading {
-            font-variation-settings: 'opsz' 14;
-        }
-        .animate-marquee-left {
-            animation: marquee-left 40s linear infinite;
-        }
-        .animate-marquee-right {
-            animation: marquee-right 40s linear infinite;
-        }
-
-        /* Token cards — continuous scroll */
-        .token-track .token-card {
-            transition: none;
-            transform-origin: center center;
-            will-change: transform, opacity;
-        }
-
-        /* Token cards mask — wider on mobile to show side cards */
-        .token-cards-mask {
-            -webkit-mask-image: radial-gradient(ellipse 65% 80% at 50% 50%, black 45%, transparent 70%);
-            mask-image: radial-gradient(ellipse 65% 80% at 50% 50%, black 45%, transparent 70%);
-        }
-        @media (min-width: 768px) {
-            .token-cards-mask {
-                -webkit-mask-image: radial-gradient(ellipse 45% 80% at 50% 50%, black 45%, transparent 70%);
-                mask-image: radial-gradient(ellipse 45% 80% at 50% 50%, black 45%, transparent 70%);
-            }
-        }
-    </style>
+    <!-- Tailwind CSS (compiled) -->
+    <link rel="stylesheet" href="assets/styles.css">
 </head>
 <body class="font-sans text-black antialiased bg-white overflow-x-hidden">
 
@@ -106,7 +49,7 @@
 
             <!-- Subtitle -->
             <p class="mt-8 text-[clamp(16px,1.8vw,18px)] leading-[1.4] tracking-[-0.008em] text-center max-w-[199px] md:max-w-[600px]">
-                On March 31, rides.com becomes $<a href="http://app.doma.xyz/domain/rides.com" class="underline decoration-solid">RIDES.COM</a>.<br>
+                On March 31, rides.com becomes $<a href="https://app.doma.xyz/domain/rides.com" class="underline decoration-solid">RIDES.COM</a>.<br>
                 Category-defining. Fractionalized, liquid and yours to trade.
             </p>
         </div>
@@ -535,7 +478,7 @@
                 <div class="bg-[#f3f3f3] border border-[rgba(111,111,111,0.16)] flex flex-col gap-3.5 items-center pb-[23px] pt-[26px] px-5 rounded-[29px] shrink-0 w-[160px] md:w-[195px] opacity-80">
                     <img src="assets/token-thumb-1.svg" alt="" class="w-12 md:w-[59px] h-12 md:h-[59px]">
                     <div class="flex flex-col gap-2.5 items-center w-full">
-                        <p class="font-medium text-base md:text-xl leading-[1.2] text-center">ride.com</p>
+                        <p class="font-medium text-base md:text-xl leading-[1.2] text-center">rides.com</p>
                         <div class="flex flex-col gap-2.5 items-center">
                             <p class="text-sm md:text-[15px] leading-[1.2] text-center">$1,480.65</p>
                             <div class="flex items-center gap-0.5 bg-[#00955d]/[0.12] rounded-xl px-1 py-1">
@@ -549,7 +492,7 @@
                 <div class="bg-[#f3f3f3] border border-[rgba(111,111,111,0.16)] flex flex-col gap-3.5 items-center pb-[23px] pt-[26px] px-5 rounded-[29px] shrink-0 w-[160px] md:w-[195px] opacity-80">
                     <img src="assets/token-thumb-1.svg" alt="" class="w-12 md:w-[59px] h-12 md:h-[59px]">
                     <div class="flex flex-col gap-2.5 items-center w-full">
-                        <p class="font-medium text-base md:text-xl leading-[1.2] text-center">ride.com</p>
+                        <p class="font-medium text-base md:text-xl leading-[1.2] text-center">rides.com</p>
                         <div class="flex flex-col gap-2.5 items-center">
                             <p class="text-sm md:text-[15px] leading-[1.2] text-center">$1,480.65</p>
                             <div class="flex items-center gap-0.5 bg-[#00955d]/[0.12] rounded-xl px-1 py-1">
@@ -568,7 +511,7 @@
                         </div>
                     </div>
                     <div class="flex flex-col gap-3 items-center w-full">
-                        <p class="font-medium text-lg md:text-2xl leading-[1.2] text-center">ride.com</p>
+                        <p class="font-medium text-lg md:text-2xl leading-[1.2] text-center">rides.com</p>
                         <div class="flex flex-col gap-3 items-center">
                             <p class="text-[15px] md:text-lg leading-[1.2] text-center">$1,480.65</p>
                             <div class="flex items-center gap-0.5 bg-[#00955d]/[0.12] rounded-xl px-1 py-1.5">
@@ -582,7 +525,7 @@
                 <div class="bg-[#f3f3f3] border border-[rgba(111,111,111,0.16)] flex flex-col gap-3.5 items-center pb-[23px] pt-[26px] px-5 rounded-[29px] shrink-0 w-[160px] md:w-[195px] opacity-80">
                     <img src="assets/token-thumb-2.svg" alt="" class="w-12 md:w-[59px] h-12 md:h-[59px]">
                     <div class="flex flex-col gap-2.5 items-center w-full">
-                        <p class="font-medium text-base md:text-xl leading-[1.2] text-center">ride.com</p>
+                        <p class="font-medium text-base md:text-xl leading-[1.2] text-center">rides.com</p>
                         <div class="flex flex-col gap-2.5 items-center">
                             <p class="text-sm md:text-[15px] leading-[1.2] text-center">$1,480.65</p>
                             <div class="flex items-center gap-0.5 bg-[#00955d]/[0.12] rounded-xl px-1 py-1">
@@ -596,7 +539,7 @@
                 <div class="bg-[#f3f3f3] border border-[rgba(111,111,111,0.16)] flex flex-col gap-3.5 items-center pb-[23px] pt-[26px] px-5 rounded-[29px] shrink-0 w-[160px] md:w-[195px] opacity-80">
                     <img src="assets/token-thumb-2.svg" alt="" class="w-12 md:w-[59px] h-12 md:h-[59px]">
                     <div class="flex flex-col gap-2.5 items-center w-full">
-                        <p class="font-medium text-base md:text-xl leading-[1.2] text-center">ride.com</p>
+                        <p class="font-medium text-base md:text-xl leading-[1.2] text-center">rides.com</p>
                         <div class="flex flex-col gap-2.5 items-center">
                             <p class="text-sm md:text-[15px] leading-[1.2] text-center">$1,480.65</p>
                             <div class="flex items-center gap-0.5 bg-[#00955d]/[0.12] rounded-xl px-1 py-1">
@@ -636,11 +579,14 @@
                         Stay ahead of the market. rides.com becomes liquid.
                     </h2>
                     <p class="text-base md:text-lg leading-[1.4] tracking-[-0.008em]">
-                        Get alerts when $<a href="http://app.doma.xyz/domain/rides.com" class="underline decoration-solid">RIDES.COM</a> and future tokens launch. Own the category before the category owns you.
+                        Get alerts when $<a href="https://app.doma.xyz/domain/rides.com" class="underline decoration-solid">RIDES.COM</a> and future tokens launch. Own the category before the category owns you.
                     </p>
                 </div>
-                <form class="flex flex-col sm:flex-row gap-2 items-stretch sm:items-start w-full sm:w-auto" onsubmit="return false;">
-                    <input type="email" placeholder="Email" class="w-full sm:w-[318px] bg-white border border-[#afafaf] text-base md:text-lg leading-[1.4] tracking-[-0.008em] px-[22px] py-4 rounded-xl outline-none placeholder-[#848181]">
+                <form id="signup-form" class="flex flex-col sm:flex-row gap-2 items-stretch sm:items-start w-full sm:w-auto">
+                    <input type="email" name="email" placeholder="Email" required class="w-full sm:w-[318px] bg-white border border-[#afafaf] text-base md:text-lg leading-[1.4] tracking-[-0.008em] px-[22px] py-4 rounded-xl outline-none placeholder-[#848181]">
+                    <div style="position:absolute;left:-9999px;" aria-hidden="true">
+                        <input type="text" name="website" tabindex="-1" autocomplete="off">
+                    </div>
                     <button type="submit" class="bg-black text-white font-semibold text-base md:text-lg leading-[1.4] tracking-[-0.008em] px-[22px] py-4 rounded-xl hover:bg-gray-900 transition-colors whitespace-nowrap">
                         Sign up
                     </button>
@@ -673,7 +619,7 @@
                         Prepare for launch
                     </h2>
                     <p class="text-base md:text-lg leading-[1.4] tracking-[-0.008em]">
-                        Before you can trade $<a href="http://app.doma.xyz/domain/rides.com" class="underline decoration-solid">RIDES.COM</a>, you'll need to bridge funds to Doma. Connect your wallet now and bridge USDC to be ready for launch day.
+                        Before you can trade $<a href="https://app.doma.xyz/domain/rides.com" class="underline decoration-solid">RIDES.COM</a>, you'll need to bridge funds to Doma. Connect your wallet now and bridge USDC to be ready for launch day.
                     </p>
                 </div>
                 <a href="https://app.doma.xyz/swap?mode=bridge" target="_blank" rel="noopener noreferrer" class="doma-link inline-flex items-center justify-center bg-white text-black font-semibold text-base md:text-lg leading-[1.4] tracking-[-0.008em] px-[22px] py-4 rounded-xl hover:bg-gray-100 transition-colors">
@@ -791,6 +737,55 @@
                     link.href = url.toString();
                 });
             }
+        })();
+    </script>
+
+    <!-- Email signup form submission -->
+    <script>
+        (function() {
+            var SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbycbR6rNc30PayRBvkB5SiPvOXvyYyTROkge9n9k0pm5UL5X8Mc4m1tV1AU4nmVjZlJ/exec';
+            var form = document.getElementById('signup-form');
+            if (!form) return;
+
+            var btn = form.querySelector('button[type="submit"]');
+            var input = form.querySelector('input[name="email"]');
+            var originalText = btn.textContent;
+
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                var honeypot = form.querySelector('input[name="website"]');
+                if (honeypot && honeypot.value) return;
+
+                var email = input.value.trim();
+                if (!email) return;
+
+                btn.textContent = 'Signing up...';
+                btn.disabled = true;
+
+                fetch(SCRIPT_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'text/plain' },
+                    body: JSON.stringify({ email: email })
+                })
+                .then(function(res) { return res.json(); })
+                .then(function(data) {
+                    if (data.result === 'success') {
+                        btn.textContent = 'Subscribed!';
+                        input.value = '';
+                    } else {
+                        btn.textContent = data.message || 'Try again';
+                    }
+                })
+                .catch(function() {
+                    btn.textContent = 'Try again';
+                })
+                .finally(function() {
+                    setTimeout(function() {
+                        btn.textContent = originalText;
+                        btn.disabled = false;
+                    }, 3000);
+                });
+            });
         })();
     </script>
 
