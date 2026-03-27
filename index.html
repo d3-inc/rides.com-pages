@@ -118,14 +118,14 @@
                 <div class="relative px-2 sm:px-4 md:px-8 lg:px-[47px]">
                     <!-- Progress bar (behind cars, vertically centered) -->
                     <div class="absolute left-[10%] right-[10%] sm:left-[5%] sm:right-[5%] lg:left-[76px] lg:right-[96px] top-[43%] h-3 md:h-4 bg-[#efefef]">
-                        <div class="absolute inset-y-0 left-0 bg-black" style="width: 57%;"></div>
+                        <div id="boost-bar" class="absolute inset-y-0 left-0 bg-black transition-all duration-1000" style="width: 0%;"></div>
                     </div>
 
                     <!-- Car silhouettes row -->
-                    <div class="relative z-10 flex justify-between items-center">
-                        <img src="assets/car-active.svg" alt="" class="w-[16%] sm:w-[14%] h-auto">
-                        <img src="assets/car-active.svg" alt="" class="w-[16%] sm:w-[14%] h-auto">
-                        <img src="assets/car-active.svg" alt="" class="w-[16%] sm:w-[14%] h-auto">
+                    <div id="boost-cars" class="relative z-10 flex justify-between items-center">
+                        <img src="assets/car-ghost.svg" alt="" class="w-[16%] sm:w-[14%] h-auto">
+                        <img src="assets/car-ghost.svg" alt="" class="w-[16%] sm:w-[14%] h-auto">
+                        <img src="assets/car-ghost.svg" alt="" class="w-[16%] sm:w-[14%] h-auto">
                         <img src="assets/car-ghost.svg" alt="" class="w-[16%] sm:w-[14%] h-auto">
                         <img src="assets/car-ghost.svg" alt="" class="w-[16%] sm:w-[14%] h-auto">
                     </div>
@@ -746,6 +746,53 @@
                     link.href = url.toString();
                 });
             }
+        })();
+    </script>
+
+    <!-- Boost Progress Script -->
+    <script>
+        (function() {
+            // Milestones: [UTC timestamp, progress %]
+            var milestones = [
+                [Date.UTC(2026, 2, 28,  0, 0), 57],  // Before Mar 28: hold at 57%
+                [Date.UTC(2026, 2, 29,  0, 0), 70],  // Mar 28: interpolate 57% → 70%
+                [Date.UTC(2026, 2, 30,  0, 0), 85],  // Mar 29: interpolate 70% → 85%
+                [Date.UTC(2026, 2, 31,  0, 0), 100], // Mar 30: interpolate 85% → 100%
+            ];
+
+            function getProgress() {
+                var now = Date.now();
+                if (now <= milestones[0][0]) return milestones[0][1];
+                if (now >= milestones[milestones.length - 1][0]) return 100;
+                for (var i = 0; i < milestones.length - 1; i++) {
+                    var start = milestones[i], end = milestones[i + 1];
+                    if (now >= start[0] && now < end[0]) {
+                        var t = (now - start[0]) / (end[0] - start[0]);
+                        return start[1] + t * (end[1] - start[1]);
+                    }
+                }
+                return 100;
+            }
+
+            function updateBoost() {
+                var pct = Math.max(57, Math.min(100, Math.round(getProgress())));
+                var bar = document.getElementById('boost-bar');
+                var cars = document.getElementById('boost-cars');
+                if (!bar || !cars) return;
+
+                bar.style.width = pct + '%';
+
+                var imgs = cars.querySelectorAll('img');
+                var thresholds = [0, 25, 50, 75, 100];
+                for (var i = 0; i < imgs.length; i++) {
+                    imgs[i].src = pct >= thresholds[i]
+                        ? 'assets/car-active.svg'
+                        : 'assets/car-ghost.svg';
+                }
+            }
+
+            updateBoost();
+            setInterval(updateBoost, 60000);
         })();
     </script>
 
